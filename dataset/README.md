@@ -1,6 +1,6 @@
 # dataset
 
-- This directory contains a dataset consisting of programs written in the C language and testcase JSON file.
+- This directory contains a dataset consisting of programs written in the C language and test case JSON file.
 
 |name|link|
 |:-|:-|
