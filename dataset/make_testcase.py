@@ -7,9 +7,9 @@ from typing import List
 
 
 def compile(src: pathlib.Path, dst: pathlib.Path, flag: str) -> None:
-    cmd = f"gcc {flag} -o {str(dst)} {str(src)}"
+    cmd = f"gcc -Wall {flag} -o {str(dst)} {str(src)}"
     if flag is None:
-        cmd = f"gcc -o {str(dst)} {str(src)}"
+        cmd = f"gcc -Wall -o {str(dst)} {str(src)}"
 
     sp.run(shlex.split(cmd))
 
