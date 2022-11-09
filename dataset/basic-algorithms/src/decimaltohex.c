@@ -4,7 +4,7 @@
 int main(int argc, char *argv[]) {
   if (argc < 2)
     return 1;
-  long int decimalNumber, remainder, quotient;
+  long int decimalNumber, quotient;
   int i = 1, j, temp;
   char hexadecimalNumber[100];
 

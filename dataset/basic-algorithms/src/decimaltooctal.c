@@ -4,7 +4,7 @@
 int main(int argc, char *argv[]) {
   if (argc < 2)
     return 1;
-  long int decimalNumber, remainder, quotient;
+  long int decimalNumber, quotient;
   int octalNumber[100], i = 1, j;
 
   decimalNumber = strtol(argv[1], NULL, 10);

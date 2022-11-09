@@ -5,8 +5,8 @@ int main(int argc, char *argv[]) {
   if (argc < 2)
     return 1;
   char *line = argv[1];
-  int i, v, c, ch, d, s, o;
-  o = v = c = ch = d = s = 0;
+  int i, v, c, ch, d, s;
+  v = c = ch = d = s = 0;
 
   for (i = 0; line[i] != '\0'; ++i) {
     if (line[i] == 'a' || line[i] == 'e' || line[i] == 'i' || line[i] == 'o' ||

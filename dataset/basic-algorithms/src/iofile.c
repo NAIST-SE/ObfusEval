@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
     return 1;
 
   char *c = argv[1];
-  FILE *rfile, *wfile;
+  FILE *wfile;
    wfile=fopen("program.txt","w");
   if (wfile == NULL) {
     printf("Error!");

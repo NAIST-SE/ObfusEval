@@ -4,7 +4,6 @@ void stringConcat(char[], char[]);
 int main(int argc, char *argv[]) {
   if (argc < 2)
     return 1;
-  int compare;
 
   char *str1 = argv[1];
   char *str2 = argv[2];
