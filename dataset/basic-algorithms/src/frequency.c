@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *rand_string(char *, size_t);
-
 int main(int argc, char *argv[]) {
   if (argc < 3)
     return 1;
