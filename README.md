@@ -119,6 +119,10 @@ Passing a test case means that the program given the stdin (standard input) of t
 
 - This source code in [src](src) is licensed MIT.
 
+    > Copyright (c) 2022 Kitaoka Tetsuya - Software Engineering Lab @ NAIST
+    > Released under the MIT license
+    > https://github.com/NAIST-SE/ObfusEval/blob/master/LICENSE
+
 - The source code in [dataset/basic-algorithms/src](dataset/basic-algorithms/src) is derived from [tum-i4/obfuscation-benchmarks](https://github.com/tum-i4/obfuscation-benchmarks).
 
     > Copyright (c) 2015 Software Engineering Chair 22 - Faculty of Informatics
