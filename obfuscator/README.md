@@ -1,6 +1,6 @@
 # obfuscator
 
-This directory contains information JSON file related obfuscator and obfuscating transformation.
+This directory contains information JSON files related to obfuscator and obfuscating transformation.
 
-If you add obfuscator or obfuscating transformation in this tool, please add or edit `<obfuscator-name>.json`.
-Please refer to the existing file to set up.
+If you add an obfuscator or obfuscating transformation in this tool, please add or edit `<obfuscator-name>.json`.
+Please refer to the existing files to set it up.

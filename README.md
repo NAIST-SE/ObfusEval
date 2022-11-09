@@ -1,8 +1,8 @@
 # ObfusEval
 
-ObfusEval is a benchmarking tool to evaluate the reliability of the code obfuscating transformation.
+ObfusEval is the benchmarking tool to evaluate the reliability of the code obfuscating transformation.
 
-The following two metics related the reliability are evaluated.
+The following two metrics related the reliability are evaluated.
 
 - **Test Pass Rate** indicates the rate of programs that are successfully obfuscated while keeping the functionalities. 
 - **Code Distance Mean** indicates how an obfuscated program is changed from the original program.
@@ -23,7 +23,7 @@ The following two metics related the reliability are evaluated.
 2. Edit [obfuscator](./obfuscator)/tool_name.json
 
     - Set the parameters as follows.
-    - Please refer to the [obfuscator](./obfuscator) existing file for details
+        - Please refer to the [obfuscator](./obfuscator) existing file for details
         ```json
         {
             "name": <TOOL_NAME>,

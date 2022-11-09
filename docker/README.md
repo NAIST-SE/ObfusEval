@@ -1,6 +1,6 @@
 # docker
 
-- This directory contains Dockerfile and resource file.
+- This directory contains the Dockerfile and resource files.
 - Please use via [docker-compose](../docker-compose.yml).
 
 ## List of application
@@ -12,5 +12,5 @@
 
 ### Tigress
 
-To build Tigress dockerimage, Please download Tigress v3.1 binaries from [Official HP](https://tigress.wtf/index.html).
+To build Tigress docker image, Please download Tigress v3.1 binaries from [Official HP](https://tigress.wtf/index.html).
 Then, extracted tigress-3.1-bin.zip to [tigress/resource](tigress/resource). 
