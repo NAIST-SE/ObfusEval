@@ -31,6 +31,7 @@ int binary(int a[], int n, int m, int l, int u) {
 
     if (m == a[mid]) {
       c = 1;
+      return c;
     } else if (m < a[mid]) {
       return binary(a, n, m, l, mid - 1);
     } else

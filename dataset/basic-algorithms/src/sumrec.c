@@ -19,7 +19,7 @@ int findsum(int n) {
   if (n) {
     r = n % 10;
     s = s + r;
-    findsum(n / 10);
+    return findsum(n / 10);
   } else
     return s;
 }
