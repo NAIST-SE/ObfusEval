@@ -27,6 +27,12 @@ The following two metrics related the reliability are evaluated.
 
 ### Preparation
 
+0. Clone this repository
+
+```bash
+git clone https://github.com/NAIST-SE/ObfusEval.git && cd ObfusEval
+```
+
 1. Add a docker image of an obfuscating transformation tool.
 
     - Please place the Dockerfile in [docker/](./docker) subdirectory.
