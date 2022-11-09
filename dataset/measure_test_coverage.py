@@ -3,6 +3,7 @@ import pathlib
 import shlex
 import subprocess as sp
 import sys
+from typing import List
 
 import pandas as pd
 from tqdm import tqdm
@@ -15,6 +16,11 @@ def compile(src: pathlib.Path, dst: pathlib.Path, flag: str):
 
 def compile_for_gcov(src: pathlib.Path, dst: pathlib.Path):
     compile(src=src, dst=dst, flag="-fprofile-arcs -ftest-coverage")
+
+
+def get_cmd(elf: pathlib.Path, x: List[str]) -> list:
+    args = [i.replace(' ', '\\ ') for i in x]
+    return shlex.split(' '.join([str(elf), *args]))
 
 
 def show_test_coverage(file: pathlib.Path):
@@ -49,8 +55,11 @@ if __name__ == '__main__':
 
         # Test
         compile_for_gcov(src=src, dst=elf)
-        [sp.run(shlex.split(' '.join([str(elf), *case["args"]])),
-                capture_output=True, encoding="utf-8") for case in testcase]
+        
+        # Measure
+        compile_for_gcov(src=src, dst=elf)
+        [sp.run(get_cmd(src.with_suffix(".elf"), case["args"]),
+                capture_output=True) for case in testcase]
 
         # Check coverage
         cmd = shlex.split(f"gcov -b {str(gcda)}")
@@ -58,10 +67,6 @@ if __name__ == '__main__':
                      env={"LANG": "C"}).stdout.splitlines()[1:5]
         coverage_result += [dict(
             name=src.name,
-            # lines_executed=res[0].split(":")[1],
-            # branches_executed=res[1].split(":")[1],
-            # taken_at_least_one=res[2].split(":")[1],
-            # calls_executed=res[3].split(":")[1])]
             lines_executed=res[0].split(":")[1].split()[0],
             branches_executed=res[1].split(":")[1].split()[0],
             taken_at_least_one=res[2].split(":")[1].split()[0],

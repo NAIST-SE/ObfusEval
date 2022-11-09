@@ -18,6 +18,11 @@ def compile_for_gcov(src: pathlib.Path, dst: pathlib.Path) -> None:
     compile(src=src, dst=dst, flag="-fprofile-arcs -ftest-coverage")
 
 
+def get_cmd(elf: pathlib.Path, x: List[str]) -> list:
+    args = [i.replace(' ', '\\ ') for i in x]
+    return shlex.split(' '.join([str(elf), *args]))
+
+
 def make_testcases(src: pathlib.Path, args: List[str]) -> dict:
     elf = src.with_suffix(".elf")
     if elf.exists():
@@ -27,10 +32,9 @@ def make_testcases(src: pathlib.Path, args: List[str]) -> dict:
 
     testcase = []
     for x in args:
-        cmd = shlex.split(' '.join([str(elf), *x]))
-        res = sp.run(cmd, capture_output=True, encoding="utf-8",)
+        res = sp.run(get_cmd(elf, x), capture_output=True, encoding="utf-8",)
         testcase += [dict(
-            args=x,
+            args=[i.replace('\\ ', ' ') for i in x],
             stdout=res.stdout,
             stderr=res.stderr,
             exit_status=res.returncode)]
@@ -55,14 +59,16 @@ if __name__ == '__main__':
         args = [
             # Write args!
             [],
-            ["0"],
+            # ["0"],
+            ["The quick brown fox jumps01 90 over9 the lazy dog"]
         ]
 
         # Make Testcase
         testcases = make_testcases(src=src, args=args)
         for case in testcases:
-            print("stdin:\n", case["args"])
+            print("stdin:\n", get_cmd(src.with_suffix(".elf"), case["args"]))
             print("stdout:\n", case["stdout"])
+            print()
 
         # Get test coverage
         elf = src.with_suffix(".elf")
@@ -71,9 +77,9 @@ if __name__ == '__main__':
         gcov_code = cwd.joinpath(src.with_suffix(".c.gcov").name)
         [i.unlink() for i in [elf, gcda, gcno, gcov_code] if i.exists()]
 
+        # Measure
         compile_for_gcov(src=src, dst=elf)
-
-        [sp.run(shlex.split(' '.join([str(elf), *case["args"]])),
+        [sp.run(get_cmd(src.with_suffix(".elf"), case["args"]),
                 capture_output=True) for case in testcases]
 
         # Check coverage
