@@ -7,6 +7,22 @@ The following two metrics related the reliability are evaluated.
 - **Test Pass Rate** indicates the rate of programs that are successfully obfuscated while keeping the functionalities. 
 - **Code Distance Mean** indicates how an obfuscated program is changed from the original program.
 
+## Requirement
+
+**Docker**
+- docker version 20.10.11 or newer
+- docker-compose version 1.29.2 or newer
+
+**Rust**
+- cargo 1.64.0 or newer
+- rustc 1.64.0 or newer
+- rustup 1.25.1 or newer
+
+**Python** (if plot result to graph using python script)
+
+- python 3.9 or newer
+
+
 ## How to use
 
 ### Preparation
