@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  tigress:
+    build: ./docker/tigress/
+    entrypoint: "/bin/bash"
+    volumes:
+      - type: bind
+        source: ${PWD}
+        target: ${PWD}
+      - type: bind
+        source: /etc/passwd
+        target: /etc/passwd
+        read_only: True
+      - type: bind
+        source: /etc/group
+        target: /etc/group
+        read_only: True
+    working_dir: ${PWD}
+    tty: true
+
+  ollvm:
+    build: ./docker/ollvm/
+    entrypoint: "/bin/bash"
+    volumes:
+      - type: bind
+        source: ${PWD}
+        target: ${PWD}
+      - type: bind
+        source: /etc/passwd
+        target: /etc/passwd
+        read_only: True
+      - type: bind
+        source: /etc/group
+        target: /etc/group
+        read_only: True
+    working_dir: ${PWD}
+    tty: true

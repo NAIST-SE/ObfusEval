@@ -1,0 +1,113 @@
+{
+    "name": "ollvm",
+    "compiler": "/opt/ollvm/bin/clang",
+    "common_flag": ["-Wno-everything"], 
+    "is_bin_only": true,
+    "transformations": [
+        {
+            "name": "bcf",
+            "display": "BCF",
+            "flag": [
+                "-mllvm -bcf"
+            ]
+        },
+        {
+            "name": "bcf_fla",
+            "display": "BCF_CFF",
+            "flag": [
+                "-mllvm -bcf -mllvm -fla"
+            ]
+        },
+        {
+            "name": "bcf_sub",
+            "display": "BCF_ISub",
+            "flag": [
+                "-mllvm -bcf -mllvm -sub"
+            ]
+        },
+        {
+            "name": "fla",
+            "display": "CFF",
+            "flag": [
+                "-mllvm -fla"
+            ]
+        },
+        {
+            "name": "fla_bcf",
+            "display": "CFF_BCF",
+            "flag": [
+                "-mllvm -fla -mllvm -bcf"
+            ]
+        },
+        {
+            "name": "fla_sub",
+            "display": "CFF_ISub",
+            "flag": [
+                "-mllvm -fla -mllvm -sub"
+            ]
+        },
+        {
+            "name": "sub",
+            "display": "ISub",
+            "flag": [
+                "-mllvm -sub"
+            ]
+        },
+        {
+            "name": "sub_bcf",
+            "display": "ISub_BCF",
+            "flag": [
+                "-mllvm -sub -mllvm -bcf"
+            ]
+        },
+        {
+            "name": "sub_fla",
+            "display": "ISub_CFF",
+            "flag": [
+                "-mllvm -sub -mllvm -fla"
+            ]
+        },
+        {
+            "name": "bcf_fla_sub",
+            "display": "BCF_CFF_ISub",
+            "flag": [
+                "-mllvm -bcf -mllvm -fla -mllvm -sub"
+            ]
+        },
+        {
+            "name": "bcf_sub_fla",
+            "display": "BCF_ISub_CFF",
+            "flag": [
+                "-mllvm -bcf -mllvm -sub -mllvm -fla"
+            ]
+        },
+        {
+            "name": "fla_bcf_sub",
+            "display": "CFF_BCF_ISub",
+            "flag": [
+                "-mllvm -fla -mllvm -bcf -mllvm -sub"
+            ]
+        },
+        {
+            "name": "fla_sub_bcf",
+            "display": "CFF_ISub_BCF",
+            "flag": [
+                "-mllvm -fla -mllvm -sub -mllvm -bcf"
+            ]
+        },
+        {
+            "name": "sub_bcf_fla",
+            "display": "ISub_BCF_CFF",
+            "flag": [
+                "-mllvm -sub -mllvm -bcf -mllvm -fla"
+            ]
+        },
+        {
+            "name": "sub_fla_bcf",
+            "display": "ISub_CFF_BCF",
+            "flag": [
+                "-mllvm -sub -mllvm -fla -mllvm -bcf"
+            ]
+        }
+    ]
+}

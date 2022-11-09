@@ -1,0 +1,256 @@
+{
+    "name": "tigress",
+    "compiler": "gcc",
+    "common_flag": ["--Environment=x86_64:Linux:Gcc:4.6 -D_Float128=double -w --Seed=1"], 
+    "is_bin_only": false,
+    "transformations": [
+        {
+            "name": "addOpaque4",
+            "display": "AddO4",
+            "flag": [
+                "--Transform=InitOpaque --Functions=*",
+                "--Transform=AddOpaque --Functions=*",
+                "--AddOpaqueCount=4 --AddOpaqueKinds=call,bug,true,junk",
+                "--Transform=CleanUp --CleanUpKinds=annotations"
+            ]
+        },
+        {
+            "name": "addOpaque16",
+            "display": "AddO16",
+            "flag": [
+                "--Transform=InitOpaque --Functions=*",
+                "--Transform=AddOpaque --Functions=*",
+                "--AddOpaqueCount=16 --AddOpaqueKinds=call,bug,true,junk",
+                "--Transform=CleanUp --CleanUpKinds=annotations"
+            ]
+        },
+        {
+            "name": "addOpaque16_encodeArithmetic1",
+            "display": "AddO16_EncA",
+            "flag": [
+                "--Transform=InitOpaque --Functions=*",
+                "--Transform=AddOpaque --Functions=*",
+                "--AddOpaqueCount=16 --AddOpaqueKinds=call,bug,true,junk",
+                "--Transform=EncodeArithmetic --Functions=*",
+                "--Transform=CleanUp --CleanUpKinds=annotations"
+            ]
+        },
+        {
+            "name": "addOpaque16_encodeLiterals1",
+            "display": "AddO16_EncL",
+            "flag": [
+                "--Transform=InitOpaque --Functions=*",
+                "--Transform=AddOpaque --Functions=*",
+                "--AddOpaqueCount=16 --AddOpaqueKinds=call,bug,true,junk",
+                "--Transform=EncodeLiterals --Functions=*",
+                "--Transform=CleanUp --CleanUpKinds=annotations"
+            ]
+        },
+        {
+            "name": "addOpaque16_flatten1",
+            "display": "AddO16_Flat",
+            "flag": [
+                "--Transform=InitOpaque --Functions=*",
+                "--Transform=AddOpaque --Functions=*",
+                "--AddOpaqueCount=16 --AddOpaqueKinds=call,bug,true,junk",
+                "--Transform=CleanUp --CleanUpKinds=annotations",
+                "--Transform=Flatten --Functions=*"
+            ]
+        },
+        {
+            "name": "addOpaque16_virt1",
+            "display": "AddO16_Virt",
+            "flag": [
+                "--Transform=InitOpaque --Functions=*",
+                "--Transform=AddOpaque --Functions=*",
+                "--AddOpaqueCount=16 --AddOpaqueKinds=call,bug,true,junk",
+                "--Transform=CleanUp --CleanUpKinds=annotations",
+                "--Transform=Virtualize --Functions=*"
+            ]
+        },
+        {
+            "name": "encodeArithmetic1",
+            "display": "EncA",
+            "flag": [
+                "--Transform=EncodeArithmetic --Functions=*"
+            ]
+        },
+        {
+            "name": "encodeArithmetic1_addOpaque16",
+            "display": "EncA_AddO16",
+            "flag": [
+                "--Transform=EncodeArithmetic --Functions=*",
+                "--Transform=InitOpaque --Functions=*",
+                "--Transform=AddOpaque --Functions=*",
+                "--AddOpaqueCount=16 --AddOpaqueKinds=call,bug,true,junk",
+                "--Transform=CleanUp --CleanUpKinds=annotations"
+            ]
+        },
+        {
+            "name": "encodeArithmetic1_encodeLiterals1",
+            "display": "EncA_EncL",
+            "flag": [
+                "--Transform=EncodeArithmetic --Functions=*",
+                "--Transform=EncodeLiterals --Functions=*"
+            ]
+        },
+        {
+            "name": "encodeArithmetic1_flatten1",
+            "display": "EncA_Flat",
+            "flag": [
+                "--Transform=EncodeArithmetic --Functions=*",
+                "--Transform=Flatten --Functions=*"
+            ]
+        },
+        {
+            "name": "encodeArithmetic1_virt1",
+            "display": "EncA_Virt",
+            "flag": [
+                "--Transform=EncodeArithmetic --Functions=*",
+                "--Transform=Virtualize --Functions=*"
+            ]
+        },
+        {
+            "name": "encodeLiterals1",
+            "display": "EncL",
+            "flag": [
+                "--Transform=EncodeLiterals --Functions=*"
+            ]
+        },
+        {
+            "name": "encodeLiterals1_addOpaque16",
+            "display": "EncL_AddO16",
+            "flag": [
+                "--Transform=EncodeLiterals --Functions=*",
+                "--Transform=InitOpaque --Functions=*",
+                "--Transform=AddOpaque --Functions=*",
+                "--AddOpaqueCount=16 --AddOpaqueKinds=call,bug,true,junk",
+                "--Transform=CleanUp --CleanUpKinds=annotations"
+            ]
+        },
+        {
+            "name": "encodeLiterals1_encodeArithmetic1",
+            "display": "EncL_EncA",
+            "flag": [
+                "--Transform=EncodeLiterals --Functions=*",
+                "--Transform=EncodeArithmetic --Functions=*"
+            ]
+        },
+        {
+            "name": "encodeLiterals1_flatten1",
+            "display": "EncL_Flat",
+            "flag": [
+                "--Transform=EncodeLiterals --Functions=*",
+                "--Transform=Flatten --Functions=*"
+            ]
+        },
+        {
+            "name": "encodeLiterals1_virt1",
+            "display": "EncL_Virt",
+            "flag": [
+                "--Transform=EncodeLiterals --Functions=*",
+                "--Transform=Virtualize --Functions=*"
+            ]
+        },
+        {
+            "name": "flatten1",
+            "display": "Flat",
+            "flag": [
+                "--Transform=Flatten --Functions=*"
+            ]
+        },
+        {
+            "name": "flatten1_addOpaque16",
+            "display": "Flat_AddO16",
+            "flag": [
+                "--Transform=Flatten --Functions=*",
+                "--Transform=InitOpaque --Functions=*",
+                "--Transform=AddOpaque --Functions=*",
+                "--AddOpaqueCount=16 --AddOpaqueKinds=call,bug,true,junk",
+                "--Transform=CleanUp --CleanUpKinds=annotations"
+            ]
+        },
+        {
+            "name": "flatten1_encodeArithmetic1",
+            "display": "Flat_EncA",
+            "flag": [
+                "--Transform=Flatten --Functions=*",
+                "--Transform=EncodeArithmetic --Functions=*"
+            ]
+        },
+        {
+            "name": "flatten1_encodeLiterals1",
+            "display": "Flat_EncL",
+            "flag": [
+                "--Transform=Flatten --Functions=*",
+                "--Transform=EncodeLiterals --Functions=*"
+            ]
+        },
+        {
+            "name": "flatten1_virt1",
+            "display": "Flat_Virt",
+            "flag": [
+                "--Transform=Flatten --Functions=*",
+                "--Transform=Virtualize --Functions=*"
+            ]
+        },
+        {
+            "name": "flatten2",
+            "display": "Flat x2",
+            "flag": [
+                "--Transform=Flatten --Functions=*",
+                "--Transform=Flatten --Functions=*"
+            ]
+        },
+        {
+            "name": "virt1",
+            "display": "Virt",
+            "flag": [
+                "--Transform=Virtualize --Functions=*"
+            ]
+        },
+        {
+            "name": "virt1_addOpaque16",
+            "display": "Virt_AddO16",
+            "flag": [
+                "--Transform=Virtualize --Functions=*",
+                "--Transform=InitOpaque --Functions=*",
+                "--Transform=AddOpaque --Functions=*",
+                "--AddOpaqueCount=16 --AddOpaqueKinds=call,bug,true,junk",
+                "--Transform=CleanUp --CleanUpKinds=annotations"
+            ]
+        },
+        {
+            "name": "virt1_encodeArithmetic1",
+            "display": "Virt_EncA",
+            "flag": [
+                "--Transform=Virtualize --Functions=*",
+                "--Transform=EncodeArithmetic --Functions=*"
+            ]
+        },
+        {
+            "name": "virt1_encodeLiterals1",
+            "display": "Virt_EncL",
+            "flag": [
+                "--Transform=Virtualize --Functions=*",
+                "--Transform=EncodeLiterals --Functions=*"
+            ]
+        },
+        {
+            "name": "virt1_flatten1",
+            "display": "Virt_Flat",
+            "flag": [
+                "--Transform=Virtualize --Functions=*",
+                "--Transform=Flatten --Functions=*"
+            ]
+        },
+        {
+            "name": "virt2",
+            "display": "Virt x2",
+            "flag": [
+                "--Transform=Virtualize --Functions=*",
+                "--Transform=Virtualize --Functions=*"
+            ]
+        }
+    ]
+}
