@@ -65,12 +65,24 @@ impl Testcase {
             return Err(EvaluateError::FailTestError(anyhow!("exit_code do not match")).into())
         }
 
-        if String::from_utf8(output.stdout)? != self.stdout {
-            return Err(EvaluateError::FailTestError(anyhow!("stdout do not match")).into())
+        let stdout = String::from_utf8(output.stdout)?;
+        if stdout != self.stdout {
+            return Err(EvaluateError::FailTestError(anyhow!(
+                "stdout do not match (origin: \"{}\", obfuscated: \"{}\")",
+                self.stdout,
+                stdout
+            ))
+            .into());
         }
 
-        if String::from_utf8(output.stderr)? != self.stderr {
-            return Err(EvaluateError::FailTestError(anyhow!("stderr do not match")).into())
+        let stderr = String::from_utf8(output.stderr)?;
+        if stderr != self.stderr {
+            return Err(EvaluateError::FailTestError(anyhow!(
+                "stderr do not match (origin: \"{}\", obfuscated: \"{}\")",
+                self.stderr,
+                stderr
+            ))
+            .into());
         }
 
         Ok(())
