@@ -9,8 +9,8 @@ use std::process;
 pub mod compile_code;
 pub mod obfuscate_code;
 
-use crate::builder::Obfuscator;
-use crate::program::Dataset;
+use crate::builder::obfuscator::Obfuscator;
+use crate::program::dataset::Dataset;
 
 /// Compile code
 pub fn compile_code(obfuscator: &Obfuscator, dataset: &Dataset) -> Result<()> {

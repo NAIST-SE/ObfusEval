@@ -6,8 +6,8 @@ use std::path::PathBuf;
 use std::process;
 use thiserror::Error;
 
-use crate::builder::DockerService;
-use crate::program::{Code, Dataset};
+use crate::builder::service::DockerService;
+use crate::program::{code::Code, dataset::Dataset};
 
 #[derive(Debug, Error)]
 pub enum SetupError {
