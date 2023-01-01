@@ -4,21 +4,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.026171753,
+        "execution_time": 0.002530694,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "tqzrwpalcjviqqpdqvzfbttoy dt12btmwtlberxblrvotkeotvxg",
-        "execution_time": 0.001430335,
+        "execution_time": 0.001117461,
         "exit_code": 0,
         "stderr": "",
         "stdout": "\"tqzrwpalcjviqqpdqvzfbttoy\" and \"dt12btmwtlberxblrvotkeotvxg\" are not anagrams.\n"
       },
       {
         "args": "angel glean",
-        "execution_time": 0.041859996,
+        "execution_time": 0.09234734,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "\"angel\" and \"glean\" are anagrams.\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.01786528,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "tqzrwpalcjviqqpdqvzfbttoy dt12btmwtlberxblrvotkeotvxg",
+        "execution_time": 0.001255517,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "\"tqzrwpalcjviqqpdqvzfbttoy\" and \"dt12btmwtlberxblrvotkeotvxg\" are not anagrams.\n"
+      },
+      {
+        "args": "angel glean",
+        "execution_time": 0.00456117,
         "exit_code": 0,
         "stderr": "",
         "stdout": "\"angel\" and \"glean\" are anagrams.\n"
@@ -27,15 +50,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 3.4720352
+        "exec_time_increase_rate": 7.0594387
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 35.433144
+        "exec_time_increase_rate": 1.1235443
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.028831322
+        "exec_time_increase_rate": 0.04939146
       }
     ]
   },
@@ -44,21 +67,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.00285506,
+        "execution_time": 0.001372681,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "152",
-        "execution_time": 0.002834664,
+        "execution_time": 0.002381552,
         "exit_code": 0,
         "stderr": "",
         "stdout": "is not an Armstrong number."
       },
       {
         "args": "153",
-        "execution_time": 0.06753144,
+        "execution_time": 0.008034134,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "is an Armstrong number."
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.4427071,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "152",
+        "execution_time": 0.020250032,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "is not an Armstrong number."
+      },
+      {
+        "args": "153",
+        "execution_time": 0.001097864,
         "exit_code": 0,
         "stderr": "",
         "stdout": "is an Armstrong number."
@@ -67,15 +113,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 5.5447636
+        "exec_time_increase_rate": 322.51273
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 25.9122
+        "exec_time_increase_rate": 8.5028715
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.7570172
+        "exec_time_increase_rate": 0.13664995
       }
     ]
   },
@@ -84,28 +130,58 @@
     "test_results": [
       {
         "args": "00",
-        "execution_time": 0.004299635,
+        "execution_time": 0.001156928,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "00 01",
-        "execution_time": 0.06279683,
+        "execution_time": 0.093017615,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Sum of two binary numbers: 1\n"
       },
       {
         "args": "01 10",
-        "execution_time": 0.001030753,
+        "execution_time": 0.018019626,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Sum of two binary numbers: 11\n"
       },
       {
         "args": "1100010 1001101",
-        "execution_time": 0.024364393,
+        "execution_time": 0.00104013,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sum of two binary numbers: 10101111\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "00",
+        "execution_time": 0.004986606,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "00 01",
+        "execution_time": 0.001010974,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sum of two binary numbers: 1\n"
+      },
+      {
+        "args": "01 10",
+        "execution_time": 0.001046488,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sum of two binary numbers: 11\n"
+      },
+      {
+        "args": "1100010 1001101",
+        "execution_time": 0.000989412,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Sum of two binary numbers: 10101111\n"
@@ -114,19 +190,19 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.2879491
+        "exec_time_increase_rate": 4.310213
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.0149856135
+        "exec_time_increase_rate": 0.01086863
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.91574997
+        "exec_time_increase_rate": 0.0580749
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.038417578
+        "exec_time_increase_rate": 0.9512387
       }
     ]
   },
@@ -135,21 +211,44 @@
     "test_results": [
       {
         "args": "00",
-        "execution_time": 0.001744392,
+        "execution_time": 0.008144146,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "1111 111",
-        "execution_time": 0.002114372,
+        "execution_time": 0.026592022,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Product of two binary numbers: 1101001\n"
       },
       {
         "args": "1100010 1001101",
-        "execution_time": 0.01620462,
+        "execution_time": 0.001063093,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Product of two binary numbers: -1839671950\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "00",
+        "execution_time": 0.024445856,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "1111 111",
+        "execution_time": 0.000848785,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Product of two binary numbers: 1101001\n"
+      },
+      {
+        "args": "1100010 1001101",
+        "execution_time": 0.00087198,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Product of two binary numbers: -1839671950\n"
@@ -158,15 +257,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 30.330906
+        "exec_time_increase_rate": 3.0016477
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 29.186659
+        "exec_time_increase_rate": 0.031918783
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.072548635
+        "exec_time_increase_rate": 0.8202293
       }
     ]
   },
@@ -175,21 +274,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.003331468,
+        "execution_time": 0.001316714,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "4 10 14 15 16 31 34 39 57 59 59",
-        "execution_time": 0.001044663,
+        "execution_time": 0.00198237,
         "exit_code": 0,
         "stderr": "",
         "stdout": "The number is found.\n"
       },
       {
         "args": "4 10 14 15 16 31 34 39 57 59 2",
-        "execution_time": 0.047339417,
+        "execution_time": 0.001059332,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "The number is not found.\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.44427547,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "4 10 14 15 16 31 34 39 57 59 59",
+        "execution_time": 0.024605462,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "The number is found.\n"
+      },
+      {
+        "args": "4 10 14 15 16 31 34 39 57 59 2",
+        "execution_time": 0.001081212,
         "exit_code": 0,
         "stderr": "",
         "stdout": "The number is not found.\n"
@@ -198,15 +320,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 2.8900602
+        "exec_time_increase_rate": 337.4123
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.060678
+        "exec_time_increase_rate": 12.412145
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.020644234
+        "exec_time_increase_rate": 1.0206544
       }
     ]
   },
@@ -215,21 +337,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.06808206,
+        "execution_time": 0.001670612,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "4 10 14 15 16 31 34 39 57 59 59",
-        "execution_time": 0.016076265,
+        "execution_time": 0.001751071,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Number is found.\n"
       },
       {
         "args": "4 10 14 15 16 31 34 39 57 59 2",
-        "execution_time": 0.001170851,
+        "execution_time": 0.000966908,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Number is not found.\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.4443712,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "4 10 14 15 16 31 34 39 57 59 59",
+        "execution_time": 0.019910568,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Number is found.\n"
+      },
+      {
+        "args": "4 10 14 15 16 31 34 39 57 59 2",
+        "execution_time": 0.000947947,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Number is not found.\n"
@@ -238,15 +383,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.017256029
+        "exec_time_increase_rate": 265.99304
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.060087714
+        "exec_time_increase_rate": 11.370509
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.80666965
+        "exec_time_increase_rate": 0.98039
       }
     ]
   },
@@ -255,21 +400,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.023858657,
+        "execution_time": 0.001454746,
         "exit_code": 0,
         "stderr": "",
         "stdout": "After sorting: "
       },
       {
         "args": "79 2 38 62 15 73 100 31 39 7",
-        "execution_time": 0.001468464,
+        "execution_time": 0.001673673,
         "exit_code": 0,
         "stderr": "",
         "stdout": "After sorting:  2 7 15 31 38 39 62 73 79 100"
       },
       {
         "args": "36 15 79 48 46 36 37 18 28 27",
-        "execution_time": 0.001123657,
+        "execution_time": 0.001033023,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "After sorting:  15 18 27 28 36 36 37 46 48 79"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.4444902,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "After sorting: "
+      },
+      {
+        "args": "79 2 38 62 15 73 100 31 39 7",
+        "execution_time": 0.024490817,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "After sorting:  2 7 15 31 38 39 62 73 79 100"
+      },
+      {
+        "args": "36 15 79 48 46 36 37 18 28 27",
+        "execution_time": 0.001112968,
         "exit_code": 0,
         "stderr": "",
         "stdout": "After sorting:  15 18 27 28 36 36 37 46 48 79"
@@ -278,15 +446,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.05652673
+        "exec_time_increase_rate": 305.5449
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.72474706
+        "exec_time_increase_rate": 14.632976
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.9299226
+        "exec_time_increase_rate": 1.0773894
       }
     ]
   },
@@ -295,21 +463,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.016558643,
+        "execution_time": 0.008696558,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "He_does_not_teach_math He_does_not_teach_math",
-        "execution_time": 0.027272772,
+        "execution_time": 0.084979884,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Both strings are equal."
       },
       {
         "args": "He_teaches_math He_does_not_teach_math",
-        "execution_time": 0.11565076,
+        "execution_time": 0.35875335,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Both strings are not equal"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.024765387,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "He_does_not_teach_math He_does_not_teach_math",
+        "execution_time": 0.001232559,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Both strings are equal."
+      },
+      {
+        "args": "He_teaches_math He_does_not_teach_math",
+        "execution_time": 0.00111165,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Both strings are not equal"
@@ -318,15 +509,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 3.1285877
+        "exec_time_increase_rate": 2.847723
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.043497853
+        "exec_time_increase_rate": 0.014504126
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.009319412
+        "exec_time_increase_rate": 0.003098647
       }
     ]
   },
@@ -335,14 +526,30 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.003363709,
+        "execution_time": 0.005164117,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "He_does_not _teach_math",
-        "execution_time": 0.001148915,
+        "execution_time": 0.007886516,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "String after concatenation: He_does_not_teach_math\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.44332138,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "He_does_not _teach_math",
+        "execution_time": 0.0202315,
         "exit_code": 0,
         "stderr": "",
         "stdout": "String after concatenation: He_does_not_teach_math\n"
@@ -351,11 +558,11 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 45.213398
+        "exec_time_increase_rate": 85.8465
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.2302059
+        "exec_time_increase_rate": 2.5653281
       }
     ]
   },
@@ -364,14 +571,30 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.002708672,
+        "execution_time": 0.015564846,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "50",
-        "execution_time": 0.001199522,
+        "execution_time": 0.001022809,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Equivalent binary value of decimal number 50: \n110010"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.4402923,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "50",
+        "execution_time": 0.024463568,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Equivalent binary value of decimal number 50: \n110010"
@@ -380,11 +603,11 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 17.4996
+        "exec_time_increase_rate": 28.287611
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 7.474928
+        "exec_time_increase_rate": 23.918022
       }
     ]
   },
@@ -393,21 +616,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.002936262,
+        "execution_time": 0.011728863,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "50",
-        "execution_time": 0.002774431,
+        "execution_time": 0.001070328,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Equivalent hexadecimal value of decimal number 50: \n32"
       },
       {
         "args": "255",
-        "execution_time": 0.001703154,
+        "execution_time": 0.4396432,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Equivalent hexadecimal value of decimal number 255: \nFF"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.025221936,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "50",
+        "execution_time": 0.001225113,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Equivalent hexadecimal value of decimal number 50: \n32"
+      },
+      {
+        "args": "255",
+        "execution_time": 0.001112806,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Equivalent hexadecimal value of decimal number 255: \nFF"
@@ -416,15 +662,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 52.388054
+        "exec_time_increase_rate": 2.1504161
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.582096
+        "exec_time_increase_rate": 1.1446146
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.64847517
+        "exec_time_increase_rate": 0.002531157
       }
     ]
   },
@@ -433,21 +679,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.017848477,
+        "execution_time": 0.001359989,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "50",
-        "execution_time": 0.027279943,
+        "execution_time": 0.002218062,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Equivalent octal value of decimal number 50: \n62"
       },
       {
         "args": "255",
-        "execution_time": 0.11563282,
+        "execution_time": 0.00105029,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Equivalent octal value of decimal number 255: \n377"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.44400007,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "50",
+        "execution_time": 0.019671649,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Equivalent octal value of decimal number 50: \n62"
+      },
+      {
+        "args": "255",
+        "execution_time": 0.001158297,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Equivalent octal value of decimal number 255: \n377"
@@ -456,15 +725,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.096496135
+        "exec_time_increase_rate": 326.47327
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.041290153
+        "exec_time_increase_rate": 8.868845
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.009197743
+        "exec_time_increase_rate": 1.1028354
       }
     ]
   },
@@ -473,28 +742,58 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.070467,
+        "execution_time": 0.002221606,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "-1",
-        "execution_time": 0.015978705,
+        "execution_time": 0.001416778,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Error!!! Factorial of negative number doesn't exist.\n"
       },
       {
         "args": "1",
-        "execution_time": 0.07367211,
+        "execution_time": 0.001994742,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Factorial = 1\n"
       },
       {
         "args": "10",
-        "execution_time": 0.05112865,
+        "execution_time": 0.000998426,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Factorial = 3628800\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.4445587,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "-1",
+        "execution_time": 0.024757516,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Error!!! Factorial of negative number doesn't exist.\n"
+      },
+      {
+        "args": "1",
+        "execution_time": 0.00113453,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Factorial = 1\n"
+      },
+      {
+        "args": "10",
+        "execution_time": 0.00112818,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Factorial = 3628800\n"
@@ -503,19 +802,19 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.018685184
+        "exec_time_increase_rate": 200.10692
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.08149096
+        "exec_time_increase_rate": 17.47452
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.0129028205
+        "exec_time_increase_rate": 0.5687602
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.01841228
+        "exec_time_increase_rate": 1.1299585
       }
     ]
   },
@@ -524,21 +823,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.00195034,
+        "execution_time": 0.002194962,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "1",
-        "execution_time": 0.003574313,
+        "execution_time": 0.008013634,
         "exit_code": 0,
         "stderr": "",
         "stdout": "\nFactorial of 1 is: 1\n"
       },
       {
         "args": "10",
-        "execution_time": 0.06831013,
+        "execution_time": 0.084923945,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "\nFactorial of 10 is: 3628800\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.35855547,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "1",
+        "execution_time": 0.024854109,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "\nFactorial of 1 is: 1\n"
+      },
+      {
+        "args": "10",
+        "execution_time": 0.001180809,
         "exit_code": 0,
         "stderr": "",
         "stdout": "\nFactorial of 10 is: 3628800\n"
@@ -547,15 +869,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 8.163669
+        "exec_time_increase_rate": 163.35384
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 20.451372
+        "exec_time_increase_rate": 3.1014779
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.020473246
+        "exec_time_increase_rate": 0.013904312
       }
     ]
   },
@@ -564,21 +886,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.001444622,
+        "execution_time": 0.00124184,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "1",
-        "execution_time": 0.00380779,
+        "execution_time": 0.011867117,
         "exit_code": 0,
         "stderr": "",
         "stdout": "fib(1)=1\n"
       },
       {
         "args": "10",
-        "execution_time": 0.06844587,
+        "execution_time": 0.00100772,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "fib(10)=55\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.43983284,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "1",
+        "execution_time": 0.019854821,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "fib(1)=1\n"
+      },
+      {
+        "args": "10",
+        "execution_time": 0.001005872,
         "exit_code": 0,
         "stderr": "",
         "stdout": "fib(10)=55\n"
@@ -587,15 +932,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 11.160115
+        "exec_time_increase_rate": 354.17834
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.2775539
+        "exec_time_increase_rate": 1.6730956
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.014520379
+        "exec_time_increase_rate": 0.9981662
       }
     ]
   },
@@ -604,21 +949,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.002615969,
+        "execution_time": 0.012224538,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "1",
-        "execution_time": 0.002680574,
+        "execution_time": 0.001025803,
         "exit_code": 0,
         "stderr": "",
         "stdout": "1 \n"
       },
       {
         "args": "5",
-        "execution_time": 0.06741248,
+        "execution_time": 0.44011283,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "1 \n2 3 \n4 5 6 \n7 8 9 10 \n11 12 13 14 15 \n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.024948567,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "1",
+        "execution_time": 0.001080254,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "1 \n"
+      },
+      {
+        "args": "5",
+        "execution_time": 0.001296684,
         "exit_code": 0,
         "stderr": "",
         "stdout": "1 \n2 3 \n4 5 6 \n7 8 9 10 \n11 12 13 14 15 \n"
@@ -627,15 +995,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 6.1361766
+        "exec_time_increase_rate": 2.0408597
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 27.456951
+        "exec_time_increase_rate": 1.0530813
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.7562437
+        "exec_time_increase_rate": 0.0029462536
       }
     ]
   },
@@ -644,21 +1012,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.002270505,
+        "execution_time": 0.002731694,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "The quick brown fox jumps over the lazy dog T",
-        "execution_time": 0.001144223,
+        "execution_time": 0.001327267,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Frequency of T = 1"
       },
       {
         "args": "The quick brown fox jumps over the lazy t-dog t",
-        "execution_time": 0.047209352,
+        "execution_time": 0.0925514,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Frequency of t = 2"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.01840701,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "The quick brown fox jumps over the lazy dog T",
+        "execution_time": 0.001091214,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Frequency of T = 1"
+      },
+      {
+        "args": "The quick brown fox jumps over the lazy t-dog t",
+        "execution_time": 0.000926689,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Frequency of t = 2"
@@ -667,15 +1058,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 4.0120707
+        "exec_time_increase_rate": 6.738313
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.9980581
+        "exec_time_increase_rate": 0.82215106
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.021541411
+        "exec_time_increase_rate": 0.010012696
       }
     ]
   },
@@ -684,21 +1075,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.017839001,
+        "execution_time": 0.005405119,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "8 12",
-        "execution_time": 0.027275143,
+        "execution_time": 0.008196609,
         "exit_code": 0,
         "stderr": "",
         "stdout": "H.C.F of 8 and 12 is 4\n"
       },
       {
         "args": "75 15",
-        "execution_time": 0.1158727,
+        "execution_time": 0.08499778,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "H.C.F of 75 and 15 is 15\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.3780117,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "8 12",
+        "execution_time": 0.001090621,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "H.C.F of 8 and 12 is 4\n"
+      },
+      {
+        "args": "75 15",
+        "execution_time": 0.000941466,
         "exit_code": 0,
         "stderr": "",
         "stdout": "H.C.F of 75 and 15 is 15\n"
@@ -707,15 +1121,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 2.8798811
+        "exec_time_increase_rate": 69.93587
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.04805907
+        "exec_time_increase_rate": 0.13305758
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.009637093
+        "exec_time_increase_rate": 0.01107636
       }
     ]
   },
@@ -724,21 +1138,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.07191785,
+        "execution_time": 0.002452669,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "8 12",
-        "execution_time": 0.01566185,
+        "execution_time": 0.001645321,
         "exit_code": 0,
         "stderr": "",
         "stdout": "GCD of 8 and 12 is: 4\n"
       },
       {
         "args": "75 15",
-        "execution_time": 0.0737054,
+        "execution_time": 0.001144447,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "GCD of 75 and 15 is: 15\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.44817254,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "8 12",
+        "execution_time": 0.024894748,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "GCD of 8 and 12 is: 4\n"
+      },
+      {
+        "args": "75 15",
+        "execution_time": 0.001249639,
         "exit_code": 0,
         "stderr": "",
         "stdout": "GCD of 75 and 15 is: 15\n"
@@ -747,15 +1184,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.7086338
+        "exec_time_increase_rate": 182.7285
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.07948148
+        "exec_time_increase_rate": 15.130632
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.0150311515
+        "exec_time_increase_rate": 1.0919151
       }
     ]
   },
@@ -764,21 +1201,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.023425903,
+        "execution_time": 0.001256774,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "79 2 38 62 15 73 100 31 39 7",
-        "execution_time": 0.001164166,
+        "execution_time": 0.002201914,
         "exit_code": 0,
         "stderr": "",
         "stdout": "After sorting:  2 7 15 31 38 39 62 73 79 100"
       },
       {
         "args": "36 15 79 48 46 36 37 18 28 27",
-        "execution_time": 0.042388815,
+        "execution_time": 0.001017645,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "After sorting:  15 18 27 28 36 36 37 46 48 79"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.44444185,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "79 2 38 62 15 73 100 31 39 7",
+        "execution_time": 0.024891768,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "After sorting:  2 7 15 31 38 39 62 73 79 100"
+      },
+      {
+        "args": "36 15 79 48 46 36 37 18 28 27",
+        "execution_time": 0.001392585,
         "exit_code": 0,
         "stderr": "",
         "stdout": "After sorting:  15 18 27 28 36 36 37 46 48 79"
@@ -787,15 +1247,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 2.6288867
+        "exec_time_increase_rate": 353.63705
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.0723264
+        "exec_time_increase_rate": 11.304605
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.03040467
+        "exec_time_increase_rate": 1.3684388
       }
     ]
   },
@@ -804,14 +1264,30 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.00614467,
+        "execution_time": 0.007158619,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "glrpvpkxdvhisgkmudwyknbai",
-        "execution_time": 0.002351471,
+        "execution_time": 0.007872145,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": ""
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.4429075,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "glrpvpkxdvhisgkmudwyknbai",
+        "execution_time": 0.019703172,
         "exit_code": 0,
         "stderr": "",
         "stdout": ""
@@ -820,11 +1296,11 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 11.121987
+        "exec_time_increase_rate": 61.870525
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 6.6911364
+        "exec_time_increase_rate": 2.5028975
       }
     ]
   },
@@ -833,21 +1309,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.07093978,
+        "execution_time": 0.012025535,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "12 16",
-        "execution_time": 0.015864125,
+        "execution_time": 0.001055671,
         "exit_code": 0,
         "stderr": "",
         "stdout": "LCM of 12 and 16 is 48\n"
       },
       {
         "args": "45 9",
-        "execution_time": 0.073424354,
+        "execution_time": 0.4396329,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "LCM of 45 and 9 is 45\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.019935416,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "12 16",
+        "execution_time": 0.001054737,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "LCM of 12 and 16 is 48\n"
+      },
+      {
+        "args": "45 9",
+        "execution_time": 0.001000078,
         "exit_code": 0,
         "stderr": "",
         "stdout": "LCM of 45 and 9 is 45\n"
@@ -856,15 +1355,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.7231784
+        "exec_time_increase_rate": 1.657757
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.07217625
+        "exec_time_increase_rate": 0.9991152
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.018850721
+        "exec_time_increase_rate": 0.0022748027
       }
     ]
   },
@@ -873,21 +1372,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.016685933,
+        "execution_time": 0.001297989,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "4 10 14 15 16 31 34 39 57 59 59",
-        "execution_time": 0.02735752,
+        "execution_time": 0.002302522,
         "exit_code": 0,
         "stderr": "",
         "stdout": "The number is found\n"
       },
       {
         "args": "4 10 14 15 16 31 34 39 57 59 2",
-        "execution_time": 0.11513623,
+        "execution_time": 0.000964037,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "The number is not in the list\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.08532331,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "4 10 14 15 16 31 34 39 57 59 59",
+        "execution_time": 0.35875905,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "The number is found\n"
+      },
+      {
+        "args": "4 10 14 15 16 31 34 39 57 59 2",
+        "execution_time": 0.024704024,
         "exit_code": 0,
         "stderr": "",
         "stdout": "The number is not in the list\n"
@@ -896,15 +1418,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.1040525
+        "exec_time_increase_rate": 65.735
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.04176833
+        "exec_time_increase_rate": 155.81134
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.008638896
+        "exec_time_increase_rate": 25.625597
       }
     ]
   },
@@ -913,21 +1435,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.023359692,
+        "execution_time": 0.093437426,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "10 130 13215 136 31 34 39 57 59 66",
-        "execution_time": 0.001457091,
+        "execution_time": 0.01768774,
         "exit_code": 0,
         "stderr": "",
         "stdout": "After merge sorting elements are: 10 130 13215 136 31 34 39 57 59 66 "
       },
       {
         "args": "36 15 79 48 46 36 37 18 28 27",
-        "execution_time": 0.04206527,
+        "execution_time": 0.001284495,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "After merge sorting elements are: 36 15 79 48 46 36 37 18 28 27 "
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.004975197,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "10 130 13215 136 31 34 39 57 59 66",
+        "execution_time": 0.001114152,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "After merge sorting elements are: 10 130 13215 136 31 34 39 57 59 66 "
+      },
+      {
+        "args": "36 15 79 48 46 36 37 18 28 27",
+        "execution_time": 0.001026213,
         "exit_code": 0,
         "stderr": "",
         "stdout": "After merge sorting elements are: 36 15 79 48 46 36 37 18 28 27 "
@@ -936,15 +1481,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 3.8475392
+        "exec_time_increase_rate": 0.053246297
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.0082357
+        "exec_time_increase_rate": 0.06299007
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.02809137
+        "exec_time_increase_rate": 0.7989234
       }
     ]
   },
@@ -953,21 +1498,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.0025113,
+        "execution_time": 0.001175955,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "10 130 13215 136 31 34 39 57 59 66",
-        "execution_time": 0.014128032,
+        "execution_time": 0.09264314,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Largest element: 13215\nSmallest element: 10\n"
       },
       {
         "args": "36 15 79 48 46 36 37 18 28 27",
-        "execution_time": 0.027208524,
+        "execution_time": 0.017311024,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Largest element: 79\nSmallest element: 15\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.007137697,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "10 130 13215 136 31 34 39 57 59 66",
+        "execution_time": 0.000981935,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Largest element: 13215\nSmallest element: 10\n"
+      },
+      {
+        "args": "36 15 79 48 46 36 37 18 28 27",
+        "execution_time": 0.00101391,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Largest element: 79\nSmallest element: 15\n"
@@ -976,15 +1544,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 46.271507
+        "exec_time_increase_rate": 6.069702
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 3.6319637
+        "exec_time_increase_rate": 0.010599111
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.04377573
+        "exec_time_increase_rate": 0.058570195
       }
     ]
   },
@@ -993,14 +1561,30 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.002396892,
+        "execution_time": 0.001435534,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "4",
-        "execution_time": 0.004135605,
+        "execution_time": 0.002099253,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "4 * 1 = 4\n4 * 2 = 8\n4 * 3 = 12\n4 * 4 = 16\n4 * 5 = 20\n4 * 6 = 24\n4 * 7 = 28\n4 * 8 = 32\n4 * 9 = 36\n4 * 10 = 40\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.096162505,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "4",
+        "execution_time": 0.018072318,
         "exit_code": 0,
         "stderr": "",
         "stdout": "4 * 1 = 4\n4 * 2 = 8\n4 * 3 = 12\n4 * 4 = 16\n4 * 5 = 20\n4 * 6 = 24\n4 * 7 = 28\n4 * 8 = 32\n4 * 9 = 36\n4 * 10 = 40\n"
@@ -1009,11 +1593,11 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 65.216354
+        "exec_time_increase_rate": 66.987274
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.3671013
+        "exec_time_increase_rate": 8.608928
       }
     ]
   },
@@ -1022,21 +1606,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.007034012,
+        "execution_time": 0.00196056,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "40",
-        "execution_time": 0.06878133,
+        "execution_time": 0.011562013,
         "exit_code": 0,
         "stderr": "",
         "stdout": "four zero \n"
       },
       {
         "args": "1023456789",
-        "execution_time": 0.015635287,
+        "execution_time": 0.001000696,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "one zero two three four five six seven eight nine \n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.4403572,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "40",
+        "execution_time": 0.024096971,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "four zero \n"
+      },
+      {
+        "args": "1023456789",
+        "execution_time": 0.001089277,
         "exit_code": 0,
         "stderr": "",
         "stdout": "one zero two three four five six seven eight nine \n"
@@ -1045,15 +1652,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 10.472543
+        "exec_time_increase_rate": 224.60788
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.7407714
+        "exec_time_increase_rate": 2.08415
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.07868503
+        "exec_time_increase_rate": 1.0885193
       }
     ]
   },
@@ -1062,21 +1669,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.002725043,
+        "execution_time": 0.002353536,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "44044",
-        "execution_time": 0.002735369,
+        "execution_time": 0.008109689,
         "exit_code": 0,
         "stderr": "",
         "stdout": "44044 is a palindrome.\n"
       },
       {
         "args": "33024",
-        "execution_time": 0.067341685,
+        "execution_time": 0.08486063,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "33024 is not a palindrome.\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.35869995,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "44044",
+        "execution_time": 0.024818476,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "44044 is a palindrome.\n"
+      },
+      {
+        "args": "33024",
+        "execution_time": 0.001036921,
         "exit_code": 0,
         "stderr": "",
         "stdout": "33024 is not a palindrome.\n"
@@ -1085,15 +1715,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 5.885371
+        "exec_time_increase_rate": 152.40895
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 26.802128
+        "exec_time_increase_rate": 3.0603487
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.018637015
+        "exec_time_increase_rate": 0.012219106
       }
     ]
   },
@@ -1102,42 +1732,86 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.022984382,
+        "execution_time": 0.00148637,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "1",
-        "execution_time": 0.001350502,
+        "execution_time": 0.001805866,
         "exit_code": 0,
         "stderr": "",
         "stdout": "1 is not a perfect number\n"
       },
       {
         "args": "6",
-        "execution_time": 0.042134136,
+        "execution_time": 0.00103502,
         "exit_code": 0,
         "stderr": "",
         "stdout": "6 is a perfect number\n"
       },
       {
         "args": "28",
-        "execution_time": 0.061702177,
+        "execution_time": 0.08899819,
         "exit_code": 0,
         "stderr": "",
         "stdout": "28 is a perfect number\n"
       },
       {
         "args": "496",
-        "execution_time": 0.001120291,
+        "execution_time": 0.018045824,
         "exit_code": 0,
         "stderr": "",
         "stdout": "496 is a perfect number\n"
       },
       {
         "args": "8128",
-        "execution_time": 0.001035259,
+        "execution_time": 0.001078532,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "8128 is a perfect number\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.004581303,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "1",
+        "execution_time": 0.000982475,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "1 is not a perfect number\n"
+      },
+      {
+        "args": "6",
+        "execution_time": 0.001146783,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "6 is a perfect number\n"
+      },
+      {
+        "args": "28",
+        "execution_time": 0.001032509,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "28 is a perfect number\n"
+      },
+      {
+        "args": "496",
+        "execution_time": 0.000977405,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "496 is a perfect number\n"
+      },
+      {
+        "args": "8128",
+        "execution_time": 0.001064383,
         "exit_code": 0,
         "stderr": "",
         "stdout": "8128 is a perfect number\n"
@@ -1146,27 +1820,27 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1791332
+        "exec_time_increase_rate": 3.0822089
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.8336456
+        "exec_time_increase_rate": 0.54404646
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.023902329
+        "exec_time_increase_rate": 1.1079816
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.01576014
+        "exec_time_increase_rate": 0.011601461
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.8098441
+        "exec_time_increase_rate": 0.05416239
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.0333143
+        "exec_time_increase_rate": 0.98688126
       }
     ]
   },
@@ -1175,42 +1849,86 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.002594165,
+        "execution_time": 0.09336366,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "1",
-        "execution_time": 0.001030207,
+        "execution_time": 0.017608505,
         "exit_code": 0,
         "stderr": "",
         "stdout": "1 is not a prime number.\n"
       },
       {
         "args": "2",
-        "execution_time": 0.04731094,
+        "execution_time": 0.00642413,
         "exit_code": 0,
         "stderr": "",
         "stdout": "2 is a prime number.\n"
       },
       {
         "args": "53",
-        "execution_time": 0.009027528,
+        "execution_time": 0.001183334,
         "exit_code": 0,
         "stderr": "",
         "stdout": "53 is a prime number.\n"
       },
       {
         "args": "57",
-        "execution_time": 0.001142077,
+        "execution_time": 0.00098438,
         "exit_code": 0,
         "stderr": "",
         "stdout": "57 is not a prime number.\n"
       },
       {
         "args": "8128",
-        "execution_time": 0.001045839,
+        "execution_time": 0.001200708,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "8128 is not a prime number.\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.027407682,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "1",
+        "execution_time": 0.001405347,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "1 is not a prime number.\n"
+      },
+      {
+        "args": "2",
+        "execution_time": 0.000941519,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "2 is a prime number.\n"
+      },
+      {
+        "args": "53",
+        "execution_time": 0.00091838,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "53 is a prime number.\n"
+      },
+      {
+        "args": "57",
+        "execution_time": 0.00091904,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "57 is not a prime number.\n"
+      },
+      {
+        "args": "8128",
+        "execution_time": 0.000954379,
         "exit_code": 0,
         "stderr": "",
         "stdout": "8128 is not a prime number.\n"
@@ -1219,27 +1937,27 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 25.385231
+        "exec_time_increase_rate": 0.29355836
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.2249421
+        "exec_time_increase_rate": 0.079810694
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.022191063
+        "exec_time_increase_rate": 0.14655976
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 2.9382484
+        "exec_time_increase_rate": 0.7760953
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 44.715122
+        "exec_time_increase_rate": 0.9336232
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.0958215
+        "exec_time_increase_rate": 0.7948469
       }
     ]
   },
@@ -1248,14 +1966,30 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.007006422,
+        "execution_time": 0.007188386,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "Mark Twain",
-        "execution_time": 0.002618339,
+        "execution_time": 0.007860545,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "MT\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.44290084,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "Mark Twain",
+        "execution_time": 0.020502938,
         "exit_code": 0,
         "stderr": "",
         "stdout": "MT\n"
@@ -1264,11 +1998,11 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 9.2754135
+        "exec_time_increase_rate": 61.61339
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.3847023
+        "exec_time_increase_rate": 2.6083355
       }
     ]
   },
@@ -1277,14 +2011,30 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.005695686,
+        "execution_time": 0.005935904,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "6",
-        "execution_time": 0.002366316,
+        "execution_time": 0.007988332,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "* \n* * \n* * * \n* * * * \n* * * * * \n* * * * * * \n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.44309148,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "6",
+        "execution_time": 0.019943971,
         "exit_code": 0,
         "stderr": "",
         "stdout": "* \n* * \n* * * \n* * * * \n* * * * * \n* * * * * * \n"
@@ -1293,11 +2043,11 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 11.941085
+        "exec_time_increase_rate": 74.645996
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 6.764134
+        "exec_time_increase_rate": 2.4966378
       }
     ]
   },
@@ -1306,21 +2056,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.068498895,
+        "execution_time": 0.09342383,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "10 130 13215 136 31 34 39 57 59 66",
-        "execution_time": 0.015393507,
+        "execution_time": 0.017752636,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Sorted elements:  10 31 34 39 57 59 66 130 136"
       },
       {
         "args": "36 15 79 48 46 36 37 18 28 27",
-        "execution_time": 0.07393936,
+        "execution_time": 0.006309348,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sorted elements:  15 18 27 28 36 36 37 46 48"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.001165034,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "10 130 13215 136 31 34 39 57 59 66",
+        "execution_time": 0.00101411,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sorted elements:  10 31 34 39 57 59 66 130 136"
+      },
+      {
+        "args": "36 15 79 48 46 36 37 18 28 27",
+        "execution_time": 0.001011379,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Sorted elements:  15 18 27 28 36 36 37 46 48"
@@ -1329,15 +2102,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.74230397
+        "exec_time_increase_rate": 0.012470416
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.0796656
+        "exec_time_increase_rate": 0.057124477
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.014878624
+        "exec_time_increase_rate": 0.16029848
       }
     ]
   },
@@ -1346,21 +2119,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.07214707,
+        "execution_time": 0.011450663,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "3",
-        "execution_time": 0.015434199,
+        "execution_time": 0.001046061,
         "exit_code": 0,
         "stderr": "",
         "stdout": "3 random numbers in [1,100]\n96\n9\n79\n"
       },
       {
         "args": "6",
-        "execution_time": 0.07373692,
+        "execution_time": 0.4393576,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "6 random numbers in [1,100]\n96\n9\n79\n26\n19\n78\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.02557296,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "3",
+        "execution_time": 0.001350796,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "3 random numbers in [1,100]\n96\n9\n79\n"
+      },
+      {
+        "args": "6",
+        "execution_time": 0.0011373,
         "exit_code": 0,
         "stderr": "",
         "stdout": "6 random numbers in [1,100]\n96\n9\n79\n26\n19\n78\n"
@@ -1369,15 +2165,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.71400464
+        "exec_time_increase_rate": 2.233317
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.08217563
+        "exec_time_increase_rate": 1.2913166
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.015205598
+        "exec_time_increase_rate": 0.002588552
       }
     ]
   },
@@ -1386,42 +2182,86 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.001813346,
+        "execution_time": 0.09330427,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "3",
-        "execution_time": 0.001052235,
+        "execution_time": 0.01776356,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Reversed of number: 3\n"
       },
       {
         "args": "35",
-        "execution_time": 0.047243606,
+        "execution_time": 0.006375034,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Reversed of number: 53\n"
       },
       {
         "args": "53",
-        "execution_time": 0.009104838,
+        "execution_time": 0.001098478,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Reversed of number: 35\n"
       },
       {
         "args": "531",
-        "execution_time": 0.000991217,
+        "execution_time": 0.000995931,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Reversed of number: 135\n"
       },
       {
         "args": "135",
-        "execution_time": 0.001021463,
+        "execution_time": 0.000967154,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Reversed of number: 531\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.018930484,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "3",
+        "execution_time": 0.001096911,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Reversed of number: 3\n"
+      },
+      {
+        "args": "35",
+        "execution_time": 0.000936067,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Reversed of number: 53\n"
+      },
+      {
+        "args": "53",
+        "execution_time": 0.000905619,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Reversed of number: 35\n"
+      },
+      {
+        "args": "531",
+        "execution_time": 0.000896038,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Reversed of number: 135\n"
+      },
+      {
+        "args": "135",
+        "execution_time": 0.000914807,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Reversed of number: 531\n"
@@ -1430,27 +2270,27 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 36.442204
+        "exec_time_increase_rate": 0.20288979
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.3142643
+        "exec_time_increase_rate": 0.061750628
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.021510528
+        "exec_time_increase_rate": 0.14683326
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.10690295
+        "exec_time_increase_rate": 0.8244307
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.94998676
+        "exec_time_increase_rate": 0.8996989
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.93447345
+        "exec_time_increase_rate": 0.9458752
       }
     ]
   },
@@ -1459,168 +2299,338 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.000942738,
+        "execution_time": 0.00096361,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "-2",
-        "execution_time": 0.000997961,
+        "execution_time": 0.08893897,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Invalid number"
       },
       {
         "args": "0",
-        "execution_time": 0.000928171,
+        "execution_time": 0.017878728,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Invalid number"
       },
       {
         "args": "1",
-        "execution_time": 0.000920787,
+        "execution_time": 0.00636225,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: I\n"
       },
       {
         "args": "4",
-        "execution_time": 0.000935295,
+        "execution_time": 0.001053883,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: IV\n"
       },
       {
         "args": "5",
-        "execution_time": 0.000933914,
+        "execution_time": 0.001035661,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: V\n"
       },
       {
         "args": "6",
-        "execution_time": 0.000890701,
+        "execution_time": 0.001113224,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: VI\n"
       },
       {
         "args": "9",
-        "execution_time": 0.000928141,
+        "execution_time": 0.000991268,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: IX\n"
       },
       {
         "args": "10",
-        "execution_time": 0.000927947,
+        "execution_time": 0.00093762,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: X\n"
       },
       {
         "args": "11",
-        "execution_time": 0.000935927,
+        "execution_time": 0.000912498,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: XI\n"
       },
       {
         "args": "49",
-        "execution_time": 0.000897288,
+        "execution_time": 0.000924255,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: XLIX\n"
       },
       {
         "args": "50",
-        "execution_time": 0.001019799,
+        "execution_time": 0.000931915,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: L\n"
       },
       {
         "args": "51",
-        "execution_time": 0.00094262,
+        "execution_time": 0.000933253,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: LI\n"
       },
       {
         "args": "99",
-        "execution_time": 0.000945441,
+        "execution_time": 0.000913461,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: XCIX\n"
       },
       {
         "args": "100",
-        "execution_time": 0.000956055,
+        "execution_time": 0.000913538,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: C\n"
       },
       {
         "args": "101",
-        "execution_time": 0.000926794,
+        "execution_time": 0.000901167,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: CI\n"
       },
       {
         "args": "499",
-        "execution_time": 0.000925109,
+        "execution_time": 0.000907953,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: LDXCIX\n"
       },
       {
         "args": "500",
-        "execution_time": 0.000918603,
+        "execution_time": 0.000904305,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: D\n"
       },
       {
         "args": "501",
-        "execution_time": 0.000929728,
+        "execution_time": 0.000908603,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: DI\n"
       },
       {
         "args": "999",
-        "execution_time": 0.000876797,
+        "execution_time": 0.000905663,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: CMXCIX\n"
       },
       {
         "args": "1000",
-        "execution_time": 0.000896207,
+        "execution_time": 0.000898398,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: M\n"
       },
       {
         "args": "1001",
-        "execution_time": 0.001340034,
+        "execution_time": 0.000912028,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: MI\n"
       },
       {
         "args": "1234",
-        "execution_time": 0.04206269,
+        "execution_time": 0.000917937,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: MCCXXXIV\n"
       },
       {
         "args": "5678",
-        "execution_time": 0.061553992,
+        "execution_time": 0.000893668,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: MMMMMDCLXXVIII\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.012772425,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "-2",
+        "execution_time": 0.000921684,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Invalid number"
+      },
+      {
+        "args": "0",
+        "execution_time": 0.000926688,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Invalid number"
+      },
+      {
+        "args": "1",
+        "execution_time": 0.000924088,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: I\n"
+      },
+      {
+        "args": "4",
+        "execution_time": 0.00094542,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: IV\n"
+      },
+      {
+        "args": "5",
+        "execution_time": 0.000928698,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: V\n"
+      },
+      {
+        "args": "6",
+        "execution_time": 0.000910288,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: VI\n"
+      },
+      {
+        "args": "9",
+        "execution_time": 0.000904949,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: IX\n"
+      },
+      {
+        "args": "10",
+        "execution_time": 0.000917976,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: X\n"
+      },
+      {
+        "args": "11",
+        "execution_time": 0.000916245,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: XI\n"
+      },
+      {
+        "args": "49",
+        "execution_time": 0.000891213,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: XLIX\n"
+      },
+      {
+        "args": "50",
+        "execution_time": 0.000877613,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: L\n"
+      },
+      {
+        "args": "51",
+        "execution_time": 0.000894674,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: LI\n"
+      },
+      {
+        "args": "99",
+        "execution_time": 0.000896151,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: XCIX\n"
+      },
+      {
+        "args": "100",
+        "execution_time": 0.000909411,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: C\n"
+      },
+      {
+        "args": "101",
+        "execution_time": 0.000906598,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: CI\n"
+      },
+      {
+        "args": "499",
+        "execution_time": 0.000916035,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: LDXCIX\n"
+      },
+      {
+        "args": "500",
+        "execution_time": 0.000892157,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: D\n"
+      },
+      {
+        "args": "501",
+        "execution_time": 0.000905922,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: DI\n"
+      },
+      {
+        "args": "999",
+        "execution_time": 0.000919046,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: CMXCIX\n"
+      },
+      {
+        "args": "1000",
+        "execution_time": 0.00090323,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: M\n"
+      },
+      {
+        "args": "1001",
+        "execution_time": 0.000923757,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: MI\n"
+      },
+      {
+        "args": "1234",
+        "execution_time": 0.000892089,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Roman number will be: MCCXXXIV\n"
+      },
+      {
+        "args": "5678",
+        "execution_time": 0.000900037,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Roman number will be: MMMMMDCLXXVIII\n"
@@ -1629,99 +2639,99 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.4669727
+        "exec_time_increase_rate": 13.2547655
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.0708405
+        "exec_time_increase_rate": 0.010363107
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.2139865
+        "exec_time_increase_rate": 0.051831875
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.2068013
+        "exec_time_increase_rate": 0.14524546
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1527444
+        "exec_time_increase_rate": 0.8970825
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1450776
+        "exec_time_increase_rate": 0.8967201
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.2380922
+        "exec_time_increase_rate": 0.8177043
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1445341
+        "exec_time_increase_rate": 0.91292065
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1634091
+        "exec_time_increase_rate": 0.9790491
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1503345
+        "exec_time_increase_rate": 1.0041063
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.2109278
+        "exec_time_increase_rate": 0.96425015
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.0491989
+        "exec_time_increase_rate": 0.94173074
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1334366
+        "exec_time_increase_rate": 0.9586618
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1388326
+        "exec_time_increase_rate": 0.98105013
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1516502
+        "exec_time_increase_rate": 0.99548244
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1538497
+        "exec_time_increase_rate": 1.0060266
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1599984
+        "exec_time_increase_rate": 1.0089012
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1895639
+        "exec_time_increase_rate": 0.9865665
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1733174
+        "exec_time_increase_rate": 0.9970493
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.221756
+        "exec_time_increase_rate": 1.0147771
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1969322
+        "exec_time_increase_rate": 1.0053785
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.7984559
+        "exec_time_increase_rate": 1.0128603
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.02553068
+        "exec_time_increase_rate": 0.97184116
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.018408505
+        "exec_time_increase_rate": 1.0071268
       }
     ]
   },
@@ -1730,21 +2740,44 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.02316836,
+        "execution_time": 0.0931262,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "10 130 13215 136 31 34 39 57 59 66",
-        "execution_time": 0.001110332,
+        "execution_time": 0.017882094,
         "exit_code": 0,
         "stderr": "",
         "stdout": "After sorting is:  10 31 34 39 57 59 66 130 136 13215\n"
       },
       {
         "args": "36 15 79 48 46 36 37 18 28 27",
-        "execution_time": 0.042441983,
+        "execution_time": 0.006365272,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "After sorting is:  15 18 27 28 36 36 37 46 48 79\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.001227442,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "10 130 13215 136 31 34 39 57 59 66",
+        "execution_time": 0.001049017,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "After sorting is:  10 31 34 39 57 59 66 130 136 13215\n"
+      },
+      {
+        "args": "36 15 79 48 46 36 37 18 28 27",
+        "execution_time": 0.001003515,
         "exit_code": 0,
         "stderr": "",
         "stdout": "After sorting is:  15 18 27 28 36 36 37 46 48 79\n"
@@ -1753,15 +2786,15 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 2.6552396
+        "exec_time_increase_rate": 0.013180415
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.0157539
+        "exec_time_increase_rate": 0.05866298
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.023887174
+        "exec_time_increase_rate": 0.15765469
       }
     ]
   },
@@ -1770,14 +2803,30 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.001918741,
+        "execution_time": 0.00902307,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "lheiombyymmdtjhzhydvhzcofopdwnhgizqzyvrvxjdnkbqoax",
-        "execution_time": 0.004545997,
+        "execution_time": 0.08513939,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "ASCII values of each characters of given string: 108 104 101 105 111 109 98 121 121 109 109 100 116 106 104 122 104 121 100 118 104 122 99 111 102 111 112 100 119 110 104 103 105 122 113 122 121 118 114 118 120 106 100 110 107 98 113 111 97 120 \n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.35882753,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "lheiombyymmdtjhzhydvhzcofopdwnhgizqzyvrvxjdnkbqoax",
+        "execution_time": 0.02453524,
         "exit_code": 0,
         "stderr": "",
         "stdout": "ASCII values of each characters of given string: 108 104 101 105 111 109 98 121 121 109 109 100 116 106 104 122 104 121 100 118 104 122 99 111 102 111 112 100 119 110 104 103 105 122 113 122 121 118 114 118 120 106 100 110 107 98 113 111 97 120 \n"
@@ -1786,11 +2835,11 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 81.33388
+        "exec_time_increase_rate": 39.767788
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.38176227
+        "exec_time_increase_rate": 0.2881773
       }
     ]
   },
@@ -1799,42 +2848,86 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.002231165,
+        "execution_time": 0.09329877,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "0",
-        "execution_time": 0.001044316,
+        "execution_time": 0.017644083,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Sum of the digits of 0 is: 01\n"
       },
       {
         "args": "1",
-        "execution_time": 0.047184747,
+        "execution_time": 0.001227034,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Sum of the digits of 1 is: 02\n"
       },
       {
         "args": "49",
-        "execution_time": 0.009139127,
+        "execution_time": 0.004600231,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Sum of the digits of 49 is: 0e\n"
       },
       {
         "args": "500",
-        "execution_time": 0.001012132,
+        "execution_time": 0.001233017,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Sum of the digits of 500 is: 06\n"
       },
       {
         "args": "5021",
-        "execution_time": 0.001047003,
+        "execution_time": 0.001076257,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sum of the digits of 5021 is: 09\n"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.001119673,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "0",
+        "execution_time": 0.00096372,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sum of the digits of 0 is: 01\n"
+      },
+      {
+        "args": "1",
+        "execution_time": 0.001025625,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sum of the digits of 1 is: 02\n"
+      },
+      {
+        "args": "49",
+        "execution_time": 0.000952798,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sum of the digits of 49 is: 0e\n"
+      },
+      {
+        "args": "500",
+        "execution_time": 0.00093105,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sum of the digits of 500 is: 06\n"
+      },
+      {
+        "args": "5021",
+        "execution_time": 0.000925078,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Sum of the digits of 5021 is: 09\n"
@@ -1843,27 +2936,27 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 8.240678
+        "exec_time_increase_rate": 0.012000941
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.98604643
+        "exec_time_increase_rate": 0.054620013
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.020316692
+        "exec_time_increase_rate": 0.83585703
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.11689104
+        "exec_time_increase_rate": 0.2071196
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.1387604
+        "exec_time_increase_rate": 0.7550991
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 0.9638321
+        "exec_time_increase_rate": 0.85953265
       }
     ]
   },
@@ -1872,14 +2965,30 @@
     "test_results": [
       {
         "args": "",
-        "execution_time": 0.024947548,
+        "execution_time": 0.002054592,
         "exit_code": 1,
         "stderr": "",
         "stdout": ""
       },
       {
         "args": "The quick brown fox jumps01 90 over9 the lazy dog",
-        "execution_time": 0.001338366,
+        "execution_time": 0.00205327,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Vowels: 11\nConsonants: 24\nDigits: 5\nWhite spaces: 9"
+      }
+    ],
+    "obfuscated_test_results": [
+      {
+        "args": "",
+        "execution_time": 0.09663089,
+        "exit_code": 1,
+        "stderr": "",
+        "stdout": ""
+      },
+      {
+        "args": "The quick brown fox jumps01 90 over9 the lazy dog",
+        "execution_time": 0.018034896,
         "exit_code": 0,
         "stderr": "",
         "stdout": "Vowels: 11\nConsonants: 24\nDigits: 5\nWhite spaces: 9"
@@ -1888,11 +2997,11 @@
     "compare_results": [
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 5.283736
+        "exec_time_increase_rate": 47.031673
       },
       {
         "fail_cause": null,
-        "exec_time_increase_rate": 1.3564041
+        "exec_time_increase_rate": 8.7835
       }
     ]
   }
