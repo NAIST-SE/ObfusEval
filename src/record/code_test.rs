@@ -15,6 +15,7 @@ use super::{
 pub struct CodeTest {
     name: String,
     test_results: Vec<CodeTestResult>,
+    obfuscated_test_results: Vec<CodeTestResult>,
     compare_results: Vec<CodeTestCompareResult>,
 }
 
@@ -47,6 +48,7 @@ impl CodeTest {
         CodeTest {
             name: elf.file_stem().unwrap().to_str().unwrap().to_string(),
             test_results: test_results,
+            obfuscated_test_results: obfuscated_test_results,
             compare_results: compare_results,
         }
     }
