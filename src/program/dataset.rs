@@ -54,11 +54,11 @@ impl Dataset {
     }
 
     pub fn result_test_dir(&self) -> PathBuf {
-        self.working_dir.join("result_test")
+        self.working_dir.join("result-test")
     }
 
     pub fn result_distance_dir(&self) -> PathBuf {
-        self.working_dir.join("result_distance")
+        self.working_dir.join("result-distance")
     }
 
     pub fn elf_dir(&self) -> PathBuf {
