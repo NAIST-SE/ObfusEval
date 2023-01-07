@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
     return 1;
   long int decimalNumber, quotient;
 
-  unsigned int binaryNumber[100], i = 0, j;
+  int binaryNumber[100], i = 0, j;
 
   decimalNumber = strtol(argv[1], NULL, 10);
   if (decimalNumber < 0)
