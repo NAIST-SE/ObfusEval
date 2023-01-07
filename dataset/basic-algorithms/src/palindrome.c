@@ -6,7 +6,10 @@ int main(int argc, char *argv[]) {
   if (argc < 2)
     return 1;
   int n, reverse = 0, rem, temp;
-  n = strtol(argv[1], NULL, 10);
+  n = (int) strtol(argv[1], NULL, 10);
+
+  if (n < 0)
+    return 1;
 
   temp = n;
   while (temp != 0) {

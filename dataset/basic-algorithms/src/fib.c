@@ -18,6 +18,9 @@ int main(int argc, char *argv[]) {
     return 1;
 
   int n = (int) strtol(argv[1], NULL, 10);
+  if (n <= 0)
+    return 1;
+
   int f = fib(n);
   printf("fib(%i)=%i\n", n, f);
 }

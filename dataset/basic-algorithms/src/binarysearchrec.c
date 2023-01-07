@@ -5,6 +5,9 @@ int binary(int a[], int n, int m, int l, int u);
 int main(int argc, char *argv[]) {
   if (argc < 12)
     return 1;
+  if (argc > 12)
+    return 1;
+
   int a[10], i, m, c, l, u;
 
   for (i = 1; i < argc - 1; i++)

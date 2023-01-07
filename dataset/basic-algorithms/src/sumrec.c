@@ -8,18 +8,20 @@ int main(int argc, char *argv[]) {
   int num, x;
 
   num = (int) strtol(argv[1], NULL, 10);
+  if (num < 0)
+    return 1;
 
   x = findsum(num);
-  printf("Sum of the digits of %d is: %02x\n", num, x);
-  return 0;
+  printf("Sum of the digits of %d is: %d\n", num, x);
+  return 0; 
 }
 
-int r, s = 1;
+int r, s = 0;
 int findsum(int n) {
-  if (n) {
-    r = n % 10;
-    s = s + r;
-    return findsum(n / 10);
-  } else
+  if (!n) 
     return s;
+
+  r = n % 10;
+  s = s + r;
+  return findsum(n / 10);
 }
