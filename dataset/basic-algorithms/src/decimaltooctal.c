@@ -8,6 +8,8 @@ int main(int argc, char *argv[]) {
   int octalNumber[100], i = 1, j;
 
   decimalNumber = strtol(argv[1], NULL, 10);
+  if (decimalNumber < 0)
+    return 1;
 
   quotient = decimalNumber;
 

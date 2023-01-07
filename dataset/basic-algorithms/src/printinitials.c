@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char *argv[]) {
   if (argc < 2)
@@ -8,11 +8,14 @@ int main(int argc, char *argv[]) {
   char *str = argv[1];
   int i = 0;
 
-  printf("%c", str[0]);
+  if (strchr(str, (int) ' ') == NULL)
+    return 1;
+
+  printf("%c.", str[0]);
   while (str[i] != '\0') {
     if (str[i] == ' ') {
       i++;
-      printf("%c", str[i]);
+      printf("%c.", str[i]);
     }
     i++;
   }

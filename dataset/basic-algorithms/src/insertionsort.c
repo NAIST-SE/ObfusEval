@@ -4,6 +4,8 @@
 int main(int argc, char *argv[]) {
   if (argc < 11)
     return 1;
+  if (argc > 11)
+    return 1;
   int i, j, s = 10, temp, a[10];
 
   for (i = 1; i < argc; i++)

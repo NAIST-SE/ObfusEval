@@ -10,6 +10,9 @@ int main(int argc, char *argv[]) {
   num1 = (int) strtol(argv[1], NULL, 10);
   num2 = (int) strtol(argv[2], NULL, 10);
 
+  if (num1 <= 0 || num2 <= 0)
+    return 1;
+
   /* maximum value is stored in variable max */
   max = (num1 > num2) ? num1 : num2;
   while (1) {

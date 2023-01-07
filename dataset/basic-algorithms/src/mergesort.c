@@ -8,11 +8,13 @@ void partition(int arr[], int low, int high);
 int main(int argc, char *argv[]) {
   if (argc < 11)
     return 1;
+  if (argc > 11)
+    return 1;
+
   int merge[10], i;
 
-  for (i = 1; i < argc; i++) {
+  for (i = 1; i < argc; i++)
     merge[i - 1] = (int) strtol(argv[i], NULL, 10);
-  }
 
   partition(merge, 0, argc - 2);
 
@@ -25,7 +27,6 @@ int main(int argc, char *argv[]) {
 }
 
 void partition(int arr[], int low, int high) {
-
   int mid;
 
   if (low < high) {
@@ -37,7 +38,6 @@ void partition(int arr[], int low, int high) {
 }
 
 void mergeSort(int arr[], int low, int mid, int high) {
-
   int i, m, k, l, temp[MAX];
 
   l = low;
@@ -66,5 +66,9 @@ void mergeSort(int arr[], int low, int mid, int high) {
       temp[i] = arr[k];
       i++;
     }
+  }
+
+  for(k=low;k<=high;k++){
+    arr[k]=temp[k];
   }
 }

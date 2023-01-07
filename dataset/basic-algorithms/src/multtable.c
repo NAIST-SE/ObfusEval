@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
   n = (int) strtol(argv[1], NULL, 10);
 
   for (i = 1; i <= 10; ++i) {
-    printf("%d * %d = %d\n", n, i, n * i);
+    printf("%d * %d = %ld\n", n, i, (long int) n * i);
   }
   return 0;
 }

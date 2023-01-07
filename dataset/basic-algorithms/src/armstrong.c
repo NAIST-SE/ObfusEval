@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     n1 /= 10;
   }
   if (num == n)
-    printf("is an Armstrong number.");
+    printf("%d is an Armstrong number.", n);
   else
-    printf("is not an Armstrong number.");
+    printf("%d is not an Armstrong number.", n);
 }

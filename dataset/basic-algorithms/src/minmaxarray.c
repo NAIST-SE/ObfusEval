@@ -4,6 +4,8 @@
 int main(int argc, char *argv[]) {
   if (argc < 11)
     return 1;
+  if (argc > 11)
+    return 1;
 
   int a[10], i, big, small;
 

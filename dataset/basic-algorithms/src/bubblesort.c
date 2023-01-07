@@ -2,6 +2,10 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
+  if (argc < 11)
+    return 1;
+  if (argc > 11)
+    return 1;
 
   int temp, i, j, a[10];
 

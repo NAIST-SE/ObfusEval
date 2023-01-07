@@ -6,6 +6,8 @@ void quicksort(int[10], int, int);
 int main(int argc, char *argv[]) {
   if (argc < 11)
     return 1;
+  if (argc > 11)
+    return 1;
   int x[10], i;
 
   for (i = 1; i < argc; i++)

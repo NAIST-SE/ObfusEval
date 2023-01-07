@@ -7,6 +7,8 @@ int main(int argc, char *argv[]) {
   int n, i = 1, sum = 0;
 
   n = (int) strtol(argv[1], NULL, 10);
+  if (n <= 0)
+    return 1;
 
   while (i < n) {
     if (n % i == 0)
