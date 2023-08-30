@@ -4,8 +4,8 @@ use rayon::prelude::*;
 use thiserror::Error;
 use std::path::PathBuf;
 
-use crate::builder::{Obfuscator, Transformation};
-use crate::program::{Code, Dataset};
+use crate::builder::obfuscator::{Obfuscator, Transformation};
+use crate::program::{code::Code, dataset::Dataset};
 
 #[derive(Debug, Error)]
 pub enum SetupError {
@@ -27,9 +27,9 @@ impl Code {
             return Ok(());
         }
 
-        let flag = t.flag();
-        let mut args = vec![flag.as_str()];
-        let out_option = format!("--out={}", obf_src.to_str().unwrap());
+        let flag: String = t.flag();
+        let mut args: Vec<&str> = vec![flag.as_str()];
+        let out_option: String = format!("--out={}", obf_src.to_str().unwrap());
         if !obfuscator.is_bin_only {
             args.push(out_option.as_str());
         }

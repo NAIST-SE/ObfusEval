@@ -8,15 +8,13 @@ use std::fs::File;
 use std::path::{Path, PathBuf};
 
 mod builder;
-mod evaluate;
 mod program;
 mod record;
 mod setup;
 
-use builder::Obfuscator;
-use program::Dataset;
-use record::TransformationUnitRecord;
-
+use builder::obfuscator::Obfuscator;
+use program::dataset::Dataset;
+use record::transformation_unit::TransformationUnit;
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct Property {
@@ -84,15 +82,15 @@ pub fn evaluate(config: Property, step: (bool, bool)) -> Result<()> {
         step
     };
 
-    let records: Vec<TransformationUnitRecord> = obfuscator
+    let records: Vec<TransformationUnit> = obfuscator
         .transformations
         .iter()
-        .map(|t| TransformationUnitRecord::new(t, &dataset, &step))
+        .map(|t| TransformationUnit::new(t, &dataset, &step))
         .collect();
 
     dbg!(&records);
     let dst = dataset.result_dir().join("result").with_extension("json");
-    TransformationUnitRecord::output(&records, dst);
+    TransformationUnit::output(&records, dst);
 
     Ok(())
 }
