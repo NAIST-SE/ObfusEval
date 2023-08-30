@@ -1,5 +1,4 @@
 use duct::cmd;
-use rs_algo::compare::LCSubstring;
 use serde::{Deserialize, Serialize};
 use std::collections::HashSet;
 use std::path::PathBuf;

@@ -14,7 +14,7 @@ pub struct Dataset {
 
 impl Dataset {
     pub fn new(p: PathBuf, name: String) -> Result<Dataset> {
-        let working_dir: PathBuf = PathBuf::from(&name);
+        let working_dir: PathBuf = PathBuf::from("output").join(&name);
         mkdir(&working_dir)?;
 
         Ok(Dataset {

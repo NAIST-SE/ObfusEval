@@ -27,7 +27,6 @@ pub struct CodeTestPassRate {
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
 pub struct CodeDistanceMean {
     by_3gram_simpson: f32,
-    by_longest_common_substring: f32,
     // Write here that your metrics.
 }
 
@@ -114,11 +113,7 @@ impl CodeDistanceMean {
         let record_len: f32 = record.len() as f32;
 
         CodeDistanceMean {
-            by_3gram_simpson: record.iter().map(|r| r.by_3gram_simpson).sum::<f32>() / record_len,
-            by_longest_common_substring: record
-                .iter()
-                .map(|r| r.by_longest_common_substring)
-                .sum::<f32>() / record_len,
+            by_3gram_simpson: record.iter().map(|r| r.by_3gram_simpson).sum::<f32>() / record_len
         }
     }
 }
