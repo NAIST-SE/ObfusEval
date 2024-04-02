@@ -12,7 +12,4 @@ impl Obfuscation {
     pub fn get_parameter(&self) -> String {
         self.parameter.join(" ")
     }
-    // pub fn get_parameter(&self) -> Vec<&str> {
-    // self.parameter.iter().map(|s: &String| s.as_str()).collect()
-    // }
 }

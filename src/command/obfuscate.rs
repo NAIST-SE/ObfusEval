@@ -75,16 +75,19 @@ impl Command for ObfuscateCommandCore {
                     // 入出力に関するパラメータ設定
                     let code_path: PathBuf = self.src.join(&code.path);
                     let dst_path: PathBuf = code_path
-                        .with_file_name(format!("obfuscated/{}", obfuscation.display_name));
+                        .with_file_name(format!("obfuscated/{}.c", obfuscation.display_name));
                     // 出力先が存在しない場合はディレクトリ作成
                     let dst_dir_path = dst_path.parent().unwrap();
                     if !dst_dir_path.exists() {
                         let _ = fs::create_dir(dst_dir_path);
                     }
                     let obfuscation_in_out_param: Vec<String> = vec![
-                        format!("-o {}", dst_path.with_extension("elf").to_string_lossy()),
+                        format!(
+                            "-o {}",
+                            dst_path.with_extension("elf").to_string_lossy().to_string()
+                        ),
                         code_path.to_string_lossy().to_string(),
-                        format!("--out={}", dst_path.to_string_lossy().to_string()),
+                        format!("--out={}", dst_path.to_string_lossy()),
                     ];
                     obfuscation_in_out_param
                         .iter()
