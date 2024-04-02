@@ -7,3 +7,13 @@ pub struct Code {
     pub target: String,
     pub function: String,
 }
+
+impl Code {
+    pub fn get_src_path(&self, dir_path: &PathBuf) -> PathBuf {
+        dir_path.join(&self.dir_name).join(&self.target)
+    }
+
+    pub fn get_dst_dir_path(&self, dir_path: &PathBuf) -> PathBuf {
+        dir_path.join(&self.dir_name).join("obfuscated/")
+    }
+}

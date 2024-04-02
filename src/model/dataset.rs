@@ -31,23 +31,24 @@ impl DatasetSerealizeModel {
 
 impl Dataset {
     pub fn new(path: &PathBuf) -> Self {
-        let dataset_path = fs::canonicalize(path.parent().unwrap()).unwrap();
+        let dataset_file_path = fs::canonicalize(path).unwrap();
+        let dataset_dir_path = dataset_file_path.parent().unwrap();
 
         let model: DatasetSerealizeModel = DatasetSerealizeModel::new(&path);
         Dataset {
             name: model.name,
-            src_dir: dataset_path.join(model.src_dir),
+            src_dir: dataset_dir_path.join(model.src_dir),
             obfuscator_db: model
                 .obfuscator_db
                 .iter()
                 .map(|p| {
                     let obfuscator_dp_path: PathBuf =
-                        fs::canonicalize(dataset_path.join(p)).unwrap();
+                        fs::canonicalize(dataset_dir_path.join(p)).unwrap();
                     Obfuscator::new(&obfuscator_dp_path)
                 })
                 .collect(),
             code_db: model.code_db,
-            is_docker_allowed: dataset_path.join("docker-compose.yml").exists(),
+            is_docker_allowed: dataset_dir_path.join("docker-compose.yml").exists(),
         }
     }
 }

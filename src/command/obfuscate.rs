@@ -50,10 +50,25 @@ impl Command for ObfuscateCommandCore {
                         }
                     }
 
+                    let src_path: PathBuf = code.get_src_path(&self.dataset.src_dir);
+                    let dst_dir_path: PathBuf = code.get_dst_dir_path(&self.dataset.src_dir);
+                    // 出力先が存在しない場合はディレクトリ作成
+                    if !dst_dir_path.exists() {
+                        let _ = fs::create_dir(&dst_dir_path);
+                    }
+
                     obfuscator
                         .transformation_set
                         .iter()
                         .for_each(|obfuscation: &Obfuscation| {
+                            let dst_path: &PathBuf = &dst_dir_path
+                                .join(&obfuscation.display_name)
+                                .with_extension("c");
+                            dbg!(&dst_path);
+                            if dst_path.exists() {
+                                return;
+                            }
+
                             let mut args: Vec<&str> = vec![];
 
                             // 難読化手法ごとのパラメータ設定
@@ -69,22 +84,12 @@ impl Command for ObfuscateCommandCore {
                                 .for_each(drop);
 
                             // 入出力に関するパラメータ設定
-                            let code_path: PathBuf = self.dataset.src_dir.join(&code.target);
-                            let dst_path: PathBuf = code_path.with_file_name(format!(
-                                "obfuscated/{}.c",
-                                obfuscation.display_name
-                            ));
-                            // 出力先が存在しない場合はディレクトリ作成
-                            let dst_dir_path = dst_path.parent().unwrap();
-                            if !dst_dir_path.exists() {
-                                let _ = fs::create_dir(dst_dir_path);
-                            }
                             let obfuscation_in_out_param: Vec<String> = vec![
                                 format!(
                                     "-o {}",
                                     dst_path.with_extension("elf").to_string_lossy().to_string()
                                 ),
-                                code_path.to_string_lossy().to_string(),
+                                src_path.to_string_lossy().to_string(),
                                 format!("--out={}", dst_path.to_string_lossy()),
                             ];
                             obfuscation_in_out_param
