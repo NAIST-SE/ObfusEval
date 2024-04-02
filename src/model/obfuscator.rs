@@ -2,7 +2,7 @@ use self::obfuscation::Obfuscation;
 use super::*;
 
 /// 難読化ツールを管理する構造体．
-#[derive(Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize)]
 pub struct Obfuscator {
     name: String,
     execution_path: PathBuf,

@@ -1,7 +1,7 @@
 use super::*;
 
 /// 難読化手法を管理する構造体．
-#[derive(Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize)]
 pub struct Obfuscation {
     name: String,
     pub display_name: String,
