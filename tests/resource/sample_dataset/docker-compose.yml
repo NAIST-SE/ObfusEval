@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   tigress:
-    build: ./docker/tigress/
+    build: ../docker/tigress/
     entrypoint: "/bin/bash"
     volumes:
       - type: bind
@@ -20,7 +20,7 @@ services:
     tty: true
 
   ollvm:
-    build: ./docker/ollvm/
+    build: ../docker/ollvm/
     entrypoint: "/bin/bash"
     volumes:
       - type: bind
