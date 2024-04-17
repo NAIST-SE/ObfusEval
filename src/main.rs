@@ -1,6 +1,6 @@
 use anyhow::Result;
 use clap::{Parser, Subcommand};
-use command::{obfuscate::ObfuscateCommandCore, Command};
+use command::{adjust_code::AdjustCodeCommandCore, obfuscate::ObfuscateCommandCore, Command};
 
 mod command;
 mod model;
@@ -23,6 +23,7 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     Obfuscate(command::obfuscate::ObfuscateCommand),
+    AdjustCode(command::adjust_code::AdjustCodeCommand),
 }
 
 fn main() -> Result<()> {
@@ -31,6 +32,10 @@ fn main() -> Result<()> {
     match cli.command {
         Commands::Obfuscate(cmd_args) => {
             let cmd = ObfuscateCommandCore::new(cmd_args);
+            cmd.run(cli.use_docker_compose)
+        }
+        Commands::AdjustCode(cmd_args) => {
+            let cmd = AdjustCodeCommandCore::new(cmd_args);
             cmd.run(cli.use_docker_compose)
         }
     }

@@ -5,7 +5,7 @@ use std::{fs, path::PathBuf};
 use clap::Parser;
 
 use crate::model::{
-    code::Code, dataset::Dataset, obfuscation::Obfuscation, obfuscator::Obfuscator,
+    code::CodeInfo, dataset::Dataset, obfuscation::Obfuscation, obfuscator::Obfuscator,
 };
 
 use super::Command;
@@ -43,7 +43,7 @@ impl Command for ObfuscateCommandCore {
                 let (command, common_parameter): (&str, Vec<&str>) =
                     obfuscator.make_common_command(use_docker);
 
-                self.dataset.code_db.iter().for_each(|code: &Code| {
+                self.dataset.code_db.iter().for_each(|code: &CodeInfo| {
                     if let Some(target) = &self.target {
                         if !code.dir_name.eq(target) {
                             return;
@@ -64,7 +64,7 @@ impl Command for ObfuscateCommandCore {
                             let dst_path: &PathBuf = &dst_dir_path
                                 .join(&obfuscation.display_name)
                                 .with_extension("c");
-                            dbg!(&dst_path);
+                            // dbg!(&dst_path);
                             if dst_path.exists() {
                                 return;
                             }
@@ -100,7 +100,7 @@ impl Command for ObfuscateCommandCore {
                             // コマンド実行
                             let parameter = [common_parameter.clone(), args].concat();
                             let target_command: Expression = cmd(command, parameter);
-                            dbg!(&target_command);
+                            // dbg!(&target_command);
 
                             // 成否判定(コードが生成されていれば，とりあえずOKとする)
                             let _output = target_command.unchecked().stderr_capture().run();

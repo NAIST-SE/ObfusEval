@@ -3,6 +3,7 @@ use std::path::PathBuf;
 use anyhow::Result;
 use clap::{arg, Parser};
 
+pub mod adjust_code;
 pub mod obfuscate;
 
 pub trait Command {

@@ -1,6 +1,6 @@
 use std::fs;
 
-use self::{code::Code, obfuscator::Obfuscator};
+use self::{code::CodeInfo, obfuscator::Obfuscator};
 
 use super::*;
 
@@ -9,7 +9,7 @@ pub struct DatasetSerealizeModel {
     name: String,
     src_dir: PathBuf,
     obfuscator_db: Vec<PathBuf>,
-    code_db: Vec<Code>,
+    code_db: Vec<CodeInfo>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -17,7 +17,7 @@ pub struct Dataset {
     name: String,
     pub src_dir: PathBuf,
     pub obfuscator_db: Vec<Obfuscator>,
-    pub code_db: Vec<Code>,
+    pub code_db: Vec<CodeInfo>,
     is_docker_allowed: bool,
 }
 
