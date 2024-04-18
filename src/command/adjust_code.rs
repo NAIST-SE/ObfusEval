@@ -170,12 +170,12 @@ impl AdjustCodeCommandCore {
         // もっと丁寧にやるべきだが，とりあえずTigressでは動くためOKとする
         // Todo: LINQスタイルな関数に調整する
         // Todo: 構文解析などを用いた処理に変更する
-        modified_contents = AdjustCodeCommandCore::insert_cstdlib(&contents);
-        modified_contents = AdjustCodeCommandCore::remove_extern_function(&modified_contents);
+        modified_contents = AdjustCodeCommandCore::remove_extern_function(&contents);
         modified_contents = AdjustCodeCommandCore::remove_function(&modified_contents, "main");
         modified_contents = AdjustCodeCommandCore::remove_function(&modified_contents, "megaInit");
         modified_contents = AdjustCodeCommandCore::remove_struct_timeval(&modified_contents);
         modified_contents = AdjustCodeCommandCore::remove_enum_declaration(&modified_contents);
+        modified_contents = AdjustCodeCommandCore::insert_cstdlib(&modified_contents);
         // Todo: 定義前enumの削除
         // Todo: 定義されているenumを検出．プロトタイプ宣言しているところを削除
 
