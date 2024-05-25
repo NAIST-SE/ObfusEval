@@ -1,23 +1,23 @@
-use std::path::PathBuf;
-
 use anyhow::Result;
-use clap::{arg, Parser};
+use clap::{Parser, Subcommand};
 
 pub mod adjust_code;
 pub mod obfuscate;
 
 pub trait Command {
-    fn run(&self, use_docker: bool) -> Result<()>;
+    fn run(&self) -> Result<()>;
 }
 
 #[derive(Parser)]
-pub struct SampleCommand {
-    #[arg(
-        long = "dataset",
-        help = "Path to the json file that manages dataset information"
-    )]
-    pub dataset_path: PathBuf,
+#[command(version, about, long_about = None)]
+#[command(propagate_version = true)]
+pub struct CommandLineInterface {
+    #[command(subcommand)]
+    pub command: Commands,
+}
 
-    #[arg(help = "Target source code name")]
-    pub target: String,
+#[derive(Subcommand)]
+pub enum Commands {
+    Obfuscate(obfuscate::Args),
+    AdjustCode(adjust_code::Args),
 }

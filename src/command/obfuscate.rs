@@ -11,7 +11,14 @@ use crate::model::{
 use super::Command;
 
 #[derive(Parser)]
-pub struct ObfuscateCommand {
+pub struct Args {
+    #[arg(
+        long = "use-docker-compose",
+        help = "Execute command via docker service",
+        default_value_t = false
+    )]
+    pub use_docker_compose: bool,
+
     #[arg(help = "Path to the json file that manages dataset repository")]
     pub dataset_json_path: PathBuf,
 
@@ -19,29 +26,31 @@ pub struct ObfuscateCommand {
     pub target: Option<String>,
 }
 
-pub struct ObfuscateCommandCore {
+pub struct ObfuscateCommand {
+    use_docker_compose: bool,
     dataset: Dataset,
     target: Option<String>,
 }
 
-impl ObfuscateCommandCore {
-    pub fn new(args: ObfuscateCommand) -> Self {
+impl ObfuscateCommand {
+    pub fn new(args: Args) -> Self {
         Self {
+            use_docker_compose: args.use_docker_compose,
             dataset: Dataset::new(&args.dataset_json_path),
             target: args.target,
         }
     }
 }
 
-impl Command for ObfuscateCommandCore {
-    fn run(&self, use_docker: bool) -> Result<()> {
+impl Command for ObfuscateCommand {
+    fn run(&self) -> Result<()> {
         self.dataset
             .obfuscator_db
             .iter()
             .for_each(|obfuscator: &Obfuscator| {
                 // 難読化のコマンドと共通パラメータを設定
                 let (command, common_parameter): (&str, Vec<&str>) =
-                    obfuscator.make_common_command(use_docker);
+                    obfuscator.make_common_command(self.use_docker_compose);
 
                 self.dataset.code_db.iter().for_each(|code: &CodeInfo| {
                     if let Some(target) = &self.target {

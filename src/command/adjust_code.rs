@@ -9,7 +9,7 @@ use crate::model::{code::CodeInfo, dataset::Dataset};
 use super::Command;
 
 #[derive(Parser)]
-pub struct AdjustCodeCommand {
+pub struct Args {
     #[arg(help = "Path to the json file that manages dataset repository")]
     pub dataset_json_path: PathBuf,
 
@@ -17,13 +17,13 @@ pub struct AdjustCodeCommand {
     pub target: Option<String>,
 }
 
-pub struct AdjustCodeCommandCore {
+pub struct AdjustCodeCommand {
     dataset: Dataset,
     target: Option<String>,
 }
 
-impl AdjustCodeCommandCore {
-    pub fn new(args: AdjustCodeCommand) -> Self {
+impl AdjustCodeCommand {
+    pub fn new(args: Args) -> Self {
         Self {
             dataset: Dataset::new(&args.dataset_json_path),
             target: args.target,
@@ -31,7 +31,7 @@ impl AdjustCodeCommandCore {
     }
 }
 
-impl AdjustCodeCommandCore {
+impl AdjustCodeCommand {
     fn insert_cstdlib(contents: &str) -> String {
         let mut is_cstdlib_included = false;
         let mut modified_contents = String::new();
@@ -170,12 +170,12 @@ impl AdjustCodeCommandCore {
         // もっと丁寧にやるべきだが，とりあえずTigressでは動くためOKとする
         // Todo: LINQスタイルな関数に調整する
         // Todo: 構文解析などを用いた処理に変更する
-        modified_contents = AdjustCodeCommandCore::remove_extern_function(&contents);
-        modified_contents = AdjustCodeCommandCore::remove_function(&modified_contents, "main");
-        modified_contents = AdjustCodeCommandCore::remove_function(&modified_contents, "megaInit");
-        modified_contents = AdjustCodeCommandCore::remove_struct_timeval(&modified_contents);
-        modified_contents = AdjustCodeCommandCore::remove_enum_declaration(&modified_contents);
-        modified_contents = AdjustCodeCommandCore::insert_cstdlib(&modified_contents);
+        modified_contents = AdjustCodeCommand::remove_extern_function(&contents);
+        modified_contents = AdjustCodeCommand::remove_function(&modified_contents, "main");
+        modified_contents = AdjustCodeCommand::remove_function(&modified_contents, "megaInit");
+        modified_contents = AdjustCodeCommand::remove_struct_timeval(&modified_contents);
+        modified_contents = AdjustCodeCommand::remove_enum_declaration(&modified_contents);
+        modified_contents = AdjustCodeCommand::insert_cstdlib(&modified_contents);
         // Todo: 定義前enumの削除
         // Todo: 定義されているenumを検出．プロトタイプ宣言しているところを削除
 
@@ -183,10 +183,8 @@ impl AdjustCodeCommandCore {
     }
 }
 
-impl Command for AdjustCodeCommandCore {
-    fn run(&self, use_docker: bool) -> Result<()> {
-        let _ = use_docker;
-
+impl Command for AdjustCodeCommand {
+    fn run(&self) -> Result<()> {
         self.dataset.code_db.iter().for_each(|code: &CodeInfo| {
             if let Some(target) = &self.target {
                 if !code.dir_name.eq(target) {
@@ -216,7 +214,7 @@ impl Command for AdjustCodeCommandCore {
                         .with_extension("c");
 
                     let adj_content =
-                        AdjustCodeCommandCore::main(fs::read_to_string(&result.path()).unwrap());
+                        AdjustCodeCommand::main(fs::read_to_string(&result.path()).unwrap());
 
                     let mut file = File::create(dst_adj_path).unwrap();
                     let _ = write!(file, "{}", adj_content);
