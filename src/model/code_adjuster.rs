@@ -24,7 +24,8 @@ impl CodeAdjuster for TigressCodeAdjuster {
             .remove_function("megaInit")
             .remove_struct_timeval()
             .remove_enum_declaration()
-            .insert_cstdlib();
+            .insert_cstdlib()
+            .insert_cstdio();
 
         result
             .adjusted_source_code
@@ -99,6 +100,25 @@ impl TigressCodeAdjuster {
                 }
                 adjusted_code.insert_str(0, "#include <cstdlib>\n");
                 is_cstdlib_included = true;
+            }
+            adjusted_code.push_str(line);
+            adjusted_code.push_str("\n");
+        }
+
+        self.set_adjusted_code(adjusted_code)
+    }
+
+    fn insert_cstdio(&self) -> Self {
+        let mut adjusted_code = String::new();
+
+        let mut is_cstdio_included = false;
+        for line in self.get_target_code() {
+            if line.contains("printf") {
+                if is_cstdio_included {
+                    continue;
+                }
+                adjusted_code.insert_str(0, "#include <cstdio>\n");
+                is_cstdio_included = true;
             }
             adjusted_code.push_str(line);
             adjusted_code.push_str("\n");
