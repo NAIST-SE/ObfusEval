@@ -3,7 +3,7 @@
 //!  ObfusEval is a tool to evaluate the reliability of code obfuscating transformations.
 
 mod command;
-mod model;
+pub mod model;
 
 use anyhow::Result;
 use clap::Parser;
