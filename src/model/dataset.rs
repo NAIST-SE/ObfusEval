@@ -1,4 +1,4 @@
-use std::fs;
+use std::{env, fs};
 
 use self::{code::CodeInfo, obfuscator::Obfuscator};
 
@@ -33,8 +33,11 @@ impl Dataset {
     pub fn new(path: &PathBuf) -> Self {
         let dataset_file_path = fs::canonicalize(path).unwrap();
         let dataset_dir_path = dataset_file_path.parent().unwrap();
-
         let model: DatasetSerealizeModel = DatasetSerealizeModel::new(&path);
+
+        // とりあえずここで，カレントディレクトリをdataset.jsonがある位置に変更(docker-compose.yml読み込みのため)
+        env::set_current_dir(&dataset_dir_path).unwrap();
+
         Dataset {
             name: model.name,
             src_dir: dataset_dir_path.join(model.src_dir),

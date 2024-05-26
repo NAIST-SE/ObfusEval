@@ -1,4 +1,6 @@
 use anyhow::Result;
+use indicatif::{ProgressBar, ProgressStyle};
+use rayon::prelude::*;
 use std::path::PathBuf;
 
 use clap::Parser;
@@ -41,17 +43,31 @@ impl ObfuscateCommand {
 
 impl Command for ObfuscateCommand {
     fn run(&self) -> Result<()> {
-        for obfuscator in self.dataset.obfuscator_db.iter() {
-            for code in self.dataset.code_db.iter() {
-                if let Some(target) = &self.target {
-                    if !code.dir_name.eq(target) {
-                        continue;
-                    }
-                }
+        let bar = ProgressBar::new(self.dataset.code_db.len() as u64);
+        bar.set_style(
+            ProgressStyle::with_template(
+                "{spinner} [{elapsed_precise}] {bar:40.cyan/blue} {pos:>7}/{len:7} {msg}",
+            )
+            .unwrap(),
+        );
 
-                let _ = obfuscator.obfuscate(&self.dataset, &code, &self.use_docker_compose);
-            }
-        }
+        self.dataset
+            .obfuscator_db
+            .par_iter()
+            .for_each(|obfuscator| {
+                for code in self.dataset.code_db.iter() {
+                    if let Some(target) = &self.target {
+                        if !code.dir_name.eq(target) {
+                            continue;
+                        }
+                    }
+
+                    let _ = obfuscator.obfuscate(&self.dataset, &code, &self.use_docker_compose);
+                    bar.inc(1);
+                    bar.set_message(format!("{}", code.target));
+                }
+            });
+
         Ok(())
     }
 }
