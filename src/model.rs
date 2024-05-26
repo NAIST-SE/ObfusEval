@@ -4,6 +4,7 @@ use std::{fs::File, io::BufReader, path::PathBuf};
 // pub mod c_lexer;
 // pub mod c_token;
 pub mod code;
+pub mod code_adjuster;
 pub mod dataset;
 pub mod obfuscation;
 pub mod obfuscator;
