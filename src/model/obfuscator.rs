@@ -5,7 +5,10 @@ use super::*;
 use anyhow::Result;
 use duct::{cmd, Expression};
 
-/// 難読化ツールを管理する構造体．
+pub trait ObfuscatorTrait {
+    fn obfuscate(&self, dataset: &Dataset, code: &CodeInfo) -> Result<()>;
+}
+
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Obfuscator {
     name: String,
@@ -14,22 +17,11 @@ pub struct Obfuscator {
     pub transformation_set: Vec<Obfuscation>,
 }
 
-impl Obfuscator {
-    pub fn new(path: &PathBuf) -> Self {
-        let file: File = File::open(path).unwrap();
-        let rdr: BufReader<File> = BufReader::new(file);
-        serde_json::from_reader(rdr).unwrap()
-    }
-
-    pub fn obfuscate(
-        &self,
-        dataset: &Dataset,
-        code: &CodeInfo,
-        use_docker_compose: &bool,
-    ) -> Result<()> {
+impl ObfuscatorTrait for Obfuscator {
+    fn obfuscate(&self, dataset: &Dataset, code: &CodeInfo) -> Result<()> {
         // 難読化のコマンドと共通パラメータを設定
         let (command, obfuscate_param): (&str, Vec<String>) =
-            self.make_common_command(use_docker_compose);
+            self.make_common_command(&dataset.docker_compose_file);
 
         let src_path: PathBuf = code.get_src_path(&dataset.src_dir);
         let dst_dir_path: PathBuf = code.get_dst_dir_path(&dataset.src_dir);
@@ -59,19 +51,36 @@ impl Obfuscator {
 
         Ok(())
     }
+}
 
-    fn make_common_command(&self, use_docker_compose: &bool) -> (&str, Vec<String>) {
+impl Obfuscator {
+    pub fn new(path: &PathBuf) -> Self {
+        let file: File = File::open(path).unwrap();
+        let rdr: BufReader<File> = BufReader::new(file);
+        serde_json::from_reader(rdr).unwrap()
+    }
+
+    fn make_common_command(&self, docker_compose_file: &Option<PathBuf>) -> (&str, Vec<String>) {
         let exec_path: &str = self.execution_path.to_str().unwrap();
-        match use_docker_compose {
-            true => (
+
+        match docker_compose_file {
+            Some(config_file) => (
                 "docker",
-                vec!["compose", "run", "--rm", &self.name, exec_path]
-                    .iter()
-                    .map(|s| s.to_string())
-                    .chain(self.common_parameter.iter().map(|s| s.to_string()))
-                    .collect(),
+                vec![
+                    "compose",
+                    "--file",
+                    config_file.to_str().unwrap(),
+                    "run",
+                    "--rm",
+                    &self.name,
+                    exec_path,
+                ]
+                .iter()
+                .map(|s| s.to_string())
+                .chain(self.common_parameter.iter().map(|s| s.to_string()))
+                .collect(),
             ),
-            false => (exec_path, self.common_parameter.clone()),
+            None => (exec_path, self.common_parameter.clone()),
         }
     }
 
