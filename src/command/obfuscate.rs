@@ -5,19 +5,12 @@ use std::path::PathBuf;
 
 use clap::Parser;
 
-use crate::model::dataset::Dataset;
+use crate::model::{dataset::Dataset, obfuscator::ObfuscatorTrait};
 
 use super::Command;
 
 #[derive(Parser)]
 pub struct Args {
-    #[arg(
-        long = "use-docker-compose",
-        help = "Execute command via docker service",
-        default_value_t = false
-    )]
-    pub use_docker_compose: bool,
-
     #[arg(help = "Path to the json file that manages dataset repository")]
     pub dataset_json_path: PathBuf,
 
@@ -26,7 +19,6 @@ pub struct Args {
 }
 
 pub struct ObfuscateCommand {
-    use_docker_compose: bool,
     dataset: Dataset,
     target: Option<String>,
 }
@@ -34,7 +26,6 @@ pub struct ObfuscateCommand {
 impl ObfuscateCommand {
     pub fn new(args: Args) -> Self {
         Self {
-            use_docker_compose: args.use_docker_compose,
             dataset: Dataset::new(&args.dataset_json_path),
             target: args.target,
         }
@@ -62,7 +53,7 @@ impl Command for ObfuscateCommand {
                         }
                     }
 
-                    let _ = obfuscator.obfuscate(&self.dataset, &code, &self.use_docker_compose);
+                    let _ = obfuscator.obfuscate(&self.dataset, &code);
                     bar.inc(1);
                     bar.set_message(format!("{}", code.target));
                 }

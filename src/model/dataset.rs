@@ -1,4 +1,4 @@
-use std::{env, fs};
+use std::fs;
 
 use self::{code::CodeInfo, obfuscator::Obfuscator};
 
@@ -9,6 +9,7 @@ pub struct DatasetSerealizeModel {
     name: String,
     src_dir: PathBuf,
     obfuscator_db: Vec<PathBuf>,
+    docker_compose_file: Option<PathBuf>,
     code_db: Vec<CodeInfo>,
 }
 
@@ -17,8 +18,8 @@ pub struct Dataset {
     name: String,
     pub src_dir: PathBuf,
     pub obfuscator_db: Vec<Obfuscator>,
+    pub docker_compose_file: Option<PathBuf>,
     pub code_db: Vec<CodeInfo>,
-    is_docker_allowed: bool,
 }
 
 impl DatasetSerealizeModel {
@@ -35,8 +36,14 @@ impl Dataset {
         let dataset_dir_path = dataset_file_path.parent().unwrap();
         let model: DatasetSerealizeModel = DatasetSerealizeModel::new(&path);
 
-        // とりあえずここで，カレントディレクトリをdataset.jsonがある位置に変更(docker-compose.yml読み込みのため)
-        env::set_current_dir(&dataset_dir_path).unwrap();
+        let config_file: Option<PathBuf> = if let Some(f) = model.docker_compose_file {
+            Some(
+                fs::canonicalize(dataset_dir_path.join(&f))
+                    .expect(&format!("[Model::Dataset] File not found: {:?}", f)),
+            )
+        } else {
+            None
+        };
 
         Dataset {
             name: model.name,
@@ -50,8 +57,8 @@ impl Dataset {
                     Obfuscator::new(&obfuscator_dp_path)
                 })
                 .collect(),
+            docker_compose_file: config_file,
             code_db: model.code_db,
-            is_docker_allowed: dataset_dir_path.join("docker-compose.yml").exists(),
         }
     }
 }
