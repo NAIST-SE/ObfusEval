@@ -14,10 +14,10 @@ impl CodeInfo {
     }
 
     pub fn get_dst_dir_path(&self, dir_path: &PathBuf) -> PathBuf {
-        dir_path.join(&self.dir_name).join("obfuscated/")
+        dir_path.join(&self.dir_name).join("obfuscated_raw/")
     }
 
     pub fn get_dst_adj_dir_path(&self, dir_path: &PathBuf) -> PathBuf {
-        dir_path.join(&self.dir_name).join("obfuscated_adj/")
+        dir_path.join(&self.dir_name).join("obfuscated/")
     }
 }
