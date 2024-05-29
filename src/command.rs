@@ -19,5 +19,6 @@ pub struct CommandLineInterface {
 #[derive(Subcommand)]
 pub enum Commands {
     Obfuscate(obfuscate::Args),
+    #[clap(hide(true))]
     AdjustCode(adjust_code::Args),
 }
