@@ -1,7 +1,7 @@
 use super::*;
 
 /// コードと難読化対象となる関数名を管理する構造体．
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct CodeInfo {
     pub dir_name: String,
     pub target: String,

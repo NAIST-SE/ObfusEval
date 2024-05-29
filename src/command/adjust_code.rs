@@ -19,8 +19,8 @@ pub struct Args {
 }
 
 pub struct AdjustCodeCommand {
-    dataset: Dataset,
-    target: Option<String>,
+    pub dataset: Dataset,
+    pub target: Option<String>,
 }
 
 impl AdjustCodeCommand {

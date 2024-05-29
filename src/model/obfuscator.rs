@@ -11,7 +11,7 @@ pub trait ObfuscatorTrait {
     fn obfuscate(&self, dataset: &Dataset, code: &CodeInfo, target_pb: &ProgressBar) -> Result<()>;
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Obfuscator {
     pub name: String,
     execution_path: PathBuf,

@@ -13,7 +13,7 @@ pub struct DatasetSerealizeModel {
     code_db: Vec<CodeInfo>,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Dataset {
     name: String,
     pub src_dir: PathBuf,
