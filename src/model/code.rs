@@ -1,7 +1,7 @@
 use super::*;
 
 /// コードと難読化対象となる関数名を管理する構造体．
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct CodeInfo {
     pub dir_name: String,
     pub target: String,
@@ -14,10 +14,10 @@ impl CodeInfo {
     }
 
     pub fn get_dst_dir_path(&self, dir_path: &PathBuf) -> PathBuf {
-        dir_path.join(&self.dir_name).join("obfuscated/")
+        dir_path.join(&self.dir_name).join("obfuscated_raw/")
     }
 
     pub fn get_dst_adj_dir_path(&self, dir_path: &PathBuf) -> PathBuf {
-        dir_path.join(&self.dir_name).join("obfuscated_adj/")
+        dir_path.join(&self.dir_name).join("obfuscated/")
     }
 }

@@ -6,9 +6,12 @@ use std::path::PathBuf;
 
 use clap::Parser;
 
-use crate::model::{
-    dataset::Dataset,
-    obfuscator::{Obfuscator, ObfuscatorTrait},
+use crate::{
+    command::adjust_code::AdjustCodeCommand,
+    model::{
+        dataset::Dataset,
+        obfuscator::{Obfuscator, ObfuscatorTrait},
+    },
 };
 
 use super::Command;
@@ -34,6 +37,13 @@ impl ObfuscateCommand {
             target: args.target,
         }
     }
+
+    fn to_adjust_code_command(&self) -> AdjustCodeCommand {
+        AdjustCodeCommand {
+            dataset: self.dataset.clone(),
+            target: self.target.clone(),
+        }
+    }
 }
 
 impl Command for ObfuscateCommand {
@@ -44,12 +54,16 @@ impl Command for ObfuscateCommand {
             .enumerate()
             .for_each(|(idx, obfuscator)| {
                 println!(
-                    "{} ({}) Obfuscate source code",
+                    "{} Obfuscate::{}",
                     style(format!("[{}/1]", idx + 1)).bold().dim(),
                     style(format!("{}", obfuscator.name)).bold().dim(),
                 );
                 self.obfuscate_each_code(obfuscator);
             });
+
+        println!("---\nAutomatic adjustment of obfuscated code to a compilable form.");
+        let _ = self.to_adjust_code_command().run();
+        println!("Complete.");
 
         Ok(())
     }
