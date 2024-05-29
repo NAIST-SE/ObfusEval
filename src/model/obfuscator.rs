@@ -1,24 +1,26 @@
-use std::fs;
+use std::{fs, time::Duration};
 
 use self::{code::CodeInfo, dataset::Dataset, obfuscation::Obfuscation};
 use super::*;
 use anyhow::Result;
 use duct::{cmd, Expression};
+use indicatif::{ProgressBar, ProgressStyle};
+use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 
 pub trait ObfuscatorTrait {
-    fn obfuscate(&self, dataset: &Dataset, code: &CodeInfo) -> Result<()>;
+    fn obfuscate(&self, dataset: &Dataset, code: &CodeInfo, target_pb: &ProgressBar) -> Result<()>;
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Obfuscator {
-    name: String,
+    pub name: String,
     execution_path: PathBuf,
     common_parameter: Vec<String>,
     pub transformation_set: Vec<Obfuscation>,
 }
 
 impl ObfuscatorTrait for Obfuscator {
-    fn obfuscate(&self, dataset: &Dataset, code: &CodeInfo) -> Result<()> {
+    fn obfuscate(&self, dataset: &Dataset, code: &CodeInfo, target_pb: &ProgressBar) -> Result<()> {
         // 難読化のコマンドと共通パラメータを設定
         let (command, obfuscate_param): (&str, Vec<String>) =
             self.make_common_command(&dataset.docker_compose_file);
@@ -30,24 +32,36 @@ impl ObfuscatorTrait for Obfuscator {
             let _ = fs::create_dir(&dst_dir_path);
         }
 
-        for obfuscation in self.transformation_set.iter() {
-            let dst_path: &PathBuf = &dst_dir_path
-                .join(&obfuscation.display_name)
-                .with_extension("c");
-            if dst_path.exists() {
-                continue;
-            }
+        let _: Vec<_> = self
+            .transformation_set
+            .par_iter()
+            .map(|obfuscation| {
+                let dst_path: &PathBuf = &dst_dir_path
+                    .join(&obfuscation.display_name)
+                    .with_extension("c");
+                if dst_path.exists() {
+                    return;
+                }
 
-            let obfuscation_param: Vec<String> = obfuscation.get_obfuscate_parameter(code);
-            let io_param: Vec<String> = Obfuscator::get_io_parameter(&src_path, &dst_path);
-            let args = [obfuscate_param.clone(), obfuscation_param, io_param].concat();
+                target_pb.enable_steady_tick(Duration::from_millis(100));
+                target_pb.set_message(format!("{:<10}", &obfuscation.display_name));
 
-            // 成否判定(コードが生成されていれば，とりあえずOKとする)
-            let command: Expression = cmd(command, args);
-            // dbg!(&command);
-            let _output = command.unchecked().stderr_capture().run();
-            // dbg!(&_output);
-        }
+                let obfuscation_param: Vec<String> = obfuscation.get_obfuscate_parameter(code);
+                let io_param: Vec<String> = Obfuscator::get_io_parameter(&src_path, &dst_path);
+                let args = [obfuscate_param.clone(), obfuscation_param, io_param].concat();
+
+                // 成否判定(コードが生成されていれば，とりあえずOKとする)
+                let command: Expression = cmd(command, args);
+                let _output = command.unchecked().stdout_null().stderr_capture().run();
+
+                target_pb.inc(1);
+            })
+            .collect();
+
+        let pb_style =
+            ProgressStyle::with_template("   [{elapsed_precise}] {prefix} {msg}").unwrap();
+        target_pb.set_style(pb_style);
+        target_pb.finish_with_message("obfuscated.");
 
         Ok(())
     }
