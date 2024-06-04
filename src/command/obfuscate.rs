@@ -4,7 +4,7 @@ use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use std::path::PathBuf;
 
-use clap::Parser;
+use clap::{command, Parser};
 
 use crate::{
     command::adjust_code::AdjustCodeCommand,
@@ -17,6 +17,7 @@ use crate::{
 use super::Command;
 
 #[derive(Parser)]
+#[command(about = "Obfuscate the code in the dataset")]
 pub struct Args {
     #[arg(help = "Path to the json file that manages dataset repository")]
     pub dataset_json_path: PathBuf,

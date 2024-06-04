@@ -9,6 +9,7 @@ use crate::model::dataset::Dataset;
 use super::Command;
 
 #[derive(Parser)]
+#[command(about = "Display obfuscations.")]
 pub struct Args {
     #[arg(help = "Path to the json file that manages dataset repository")]
     pub dataset_json_path: PathBuf,
