@@ -108,4 +108,11 @@ impl Obfuscator {
             format!("--out={}", dst_path.to_string_lossy()),
         ]
     }
+
+    pub fn get_obfuscation_display_name(&self) -> Vec<String> {
+        self.transformation_set
+            .iter()
+            .map(|t| t.display_name.clone())
+            .collect()
+    }
 }

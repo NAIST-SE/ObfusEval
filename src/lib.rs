@@ -8,8 +8,8 @@ pub mod model;
 use anyhow::Result;
 use clap::Parser;
 use command::{
-    adjust_code::AdjustCodeCommand, obfuscate::ObfuscateCommand, Command, CommandLineInterface,
-    Commands,
+    adjust_code::AdjustCodeCommand, list_obfuscation::ListObfuscationCommand,
+    obfuscate::ObfuscateCommand, Command, CommandLineInterface, Commands,
 };
 
 pub fn run() -> Result<()> {
@@ -18,6 +18,7 @@ pub fn run() -> Result<()> {
     let cmd: Box<dyn Command> = match cli.command {
         Commands::Obfuscate(args) => Box::new(ObfuscateCommand::new(args)),
         Commands::AdjustCode(args) => Box::new(AdjustCodeCommand::new(args)),
+        Commands::ListObfuscation(args) => Box::new(ListObfuscationCommand::new(args)),
     };
 
     cmd.run()
