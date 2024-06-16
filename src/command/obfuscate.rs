@@ -1,17 +1,14 @@
 use anyhow::Result;
-use console::style;
 use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
-use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
+
 use std::path::PathBuf;
 
 use clap::{command, Parser};
 
-use crate::{
-    command::adjust_code::AdjustCodeCommand,
-    model::{
-        dataset::Dataset,
-        obfuscator::{Obfuscator, ObfuscatorTrait},
-    },
+use crate::model::{
+    dataset::{Dataset, DatasetSerealizeModel},
+    obfuscator::Tigress,
+    DatasetHandler, Obfuscator,
 };
 
 use super::Command;
@@ -27,78 +24,63 @@ pub struct Args {
 }
 
 pub struct ObfuscateCommand {
-    dataset: Dataset,
+    dataset: Dataset<Tigress>,
     target: Option<String>,
 }
 
-impl ObfuscateCommand {
-    pub fn new(args: Args) -> Self {
+impl From<Args> for ObfuscateCommand {
+    fn from(args: Args) -> Self {
         Self {
-            dataset: Dataset::new(&args.dataset_json_path),
+            dataset: Dataset::from(DatasetSerealizeModel::new(&args.dataset_json_path)),
             target: args.target,
-        }
-    }
-
-    fn to_adjust_code_command(&self) -> AdjustCodeCommand {
-        AdjustCodeCommand {
-            dataset: self.dataset.clone(),
-            target: self.target.clone(),
         }
     }
 }
 
 impl Command for ObfuscateCommand {
     fn run(&self) -> Result<()> {
-        self.dataset
-            .obfuscator_db
-            .iter()
-            .enumerate()
-            .for_each(|(idx, obfuscator)| {
-                println!(
-                    "{} Obfuscate::{}",
-                    style(format!("[{}/1]", idx + 1)).bold().dim(),
-                    style(format!("{}", obfuscator.name)).bold().dim(),
-                );
-                self.obfuscate_each_code(obfuscator);
-            });
+        if let Some(target) = &self.target {
+            if let Some(code) = self
+                .dataset
+                .code_db
+                .iter()
+                .find(|x| x.target.starts_with(target))
+            {
+                let mp: MultiProgress = MultiProgress::new();
+                let pb_style: ProgressStyle = ProgressStyle::with_template(
+                    "{spinner:.green} [{elapsed_precise}] {prefix} {bar:40.cyan/blue} {pos:>7}/{len:7} {msg}",
+                    )
+                    .unwrap()
+                    .progress_chars("#>-");
 
-        println!("---\nAutomatic adjustment of obfuscated code to a compilable form.");
-        let _ = self.to_adjust_code_command().run();
-        println!("Complete.");
+                let _: Vec<_> = self
+                    .dataset
+                    .obfuscator_db
+                    .iter()
+                    .map(|obfuscator| {
+                        let obfuscation_len: u64 =
+                            obfuscator.get_transformation_names().len() as u64;
+                        let pb = mp.add(ProgressBar::new(obfuscation_len));
+                        pb.set_style(pb_style.clone());
+                        pb.set_prefix(format!("{:<10}", code.target));
+
+                        obfuscator.obfuscate_by_all_obfuscation(
+                            &code.src_path,
+                            &Dataset::<Tigress>::get_dst_dir_path(code),
+                            &code.function,
+                            &Some(pb),
+                        )
+                    })
+                    .collect();
+            }
+        } else {
+            self.dataset.obfuscate_each_obfuscator()?;
+        }
+
+        // println!("---\nAutomatic adjustment of obfuscated code to a compilable form.");
+        // let _ = self.to_adjust_code_command().run();
+        // println!("Complete.");
 
         Ok(())
-    }
-}
-
-impl ObfuscateCommand {
-    fn obfuscate_each_code(&self, obfuscator: &Obfuscator) {
-        let mp = MultiProgress::new();
-        let obfuscation_len = obfuscator.transformation_set.len() as u64;
-        let pb_style = ProgressStyle::with_template(
-            "{spinner:.green} [{elapsed_precise}] {prefix} {bar:40.cyan/blue} {pos:>7}/{len:7} {msg}",
-        )
-        .unwrap()
-        .progress_chars("#>-");
-
-        let _: Vec<_> = self
-            .dataset
-            .code_db
-            .par_iter()
-            .map(|code| {
-                if let Some(target) = &self.target {
-                    if !code.dir_name.eq(target) {
-                        return;
-                    }
-                }
-
-                let pb = mp.add(ProgressBar::new(obfuscation_len));
-                pb.set_style(pb_style.clone());
-                pb.set_prefix(format!("{:<10}", code.target));
-
-                let _ = obfuscator.obfuscate(&self.dataset, &code, &pb);
-            })
-            .collect();
-
-        // mp.clear().unwrap();
     }
 }

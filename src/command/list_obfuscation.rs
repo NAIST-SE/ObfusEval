@@ -4,7 +4,11 @@ use anyhow::Result;
 
 use clap::Parser;
 
-use crate::model::dataset::Dataset;
+use crate::model::{
+    dataset::{Dataset, DatasetSerealizeModel},
+    obfuscator::Tigress,
+    Obfuscator,
+};
 
 use super::Command;
 
@@ -16,13 +20,13 @@ pub struct Args {
 }
 
 pub struct ListObfuscationCommand {
-    pub dataset: Dataset,
+    dataset: Dataset<Tigress>,
 }
 
-impl ListObfuscationCommand {
-    pub fn new(args: Args) -> Self {
+impl From<Args> for ListObfuscationCommand {
+    fn from(args: Args) -> Self {
         Self {
-            dataset: Dataset::new(&args.dataset_json_path),
+            dataset: Dataset::from(DatasetSerealizeModel::new(&args.dataset_json_path)),
         }
     }
 }
@@ -33,7 +37,10 @@ impl Command for ListObfuscationCommand {
             .dataset
             .obfuscator_db
             .iter()
-            .flat_map(|o| o.get_obfuscation_display_name())
+            .flat_map(|o| o.get_transformation_names())
+            .collect::<Vec<&String>>()
+            .into_iter()
+            .map(|x| x.to_owned())
             .collect::<Vec<String>>()
             .join(" ");
 

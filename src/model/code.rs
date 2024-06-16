@@ -1,23 +1,18 @@
+use std::fs;
+
 use super::*;
 
-/// コードと難読化対象となる関数名を管理する構造体．
-#[derive(Debug, Clone, Deserialize, Serialize)]
-pub struct CodeInfo {
-    pub dir_name: String,
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Code {
+    dir_name: String,
     pub target: String,
     pub function: String,
+    #[serde(skip)]
+    pub src_path: PathBuf,
 }
 
-impl CodeInfo {
-    pub fn get_src_path(&self, dir_path: &PathBuf) -> PathBuf {
-        dir_path.join(&self.dir_name).join(&self.target)
-    }
-
-    pub fn get_dst_dir_path(&self, dir_path: &PathBuf) -> PathBuf {
-        dir_path.join(&self.dir_name).join("obfuscated_raw/")
-    }
-
-    pub fn get_dst_adj_dir_path(&self, dir_path: &PathBuf) -> PathBuf {
-        dir_path.join(&self.dir_name).join("obfuscated/")
+impl Code {
+    pub fn set_src_path(&mut self, src_dir: &PathBuf) {
+        self.src_path = fs::canonicalize(src_dir.join(&self.dir_name).join(&self.target)).unwrap();
     }
 }
