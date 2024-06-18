@@ -15,11 +15,9 @@ use command::{
 pub fn run() -> Result<()> {
     let cli: CommandLineInterface = CommandLineInterface::parse();
 
-    let cmd: Box<dyn Command> = match cli.command {
-        Commands::Obfuscate(args) => Box::new(ObfuscateCommand::new(args)),
-        Commands::AdjustCode(args) => Box::new(AdjustCodeCommand::new(args)),
-        Commands::ListObfuscation(args) => Box::new(ListObfuscationCommand::new(args)),
-    };
-
-    cmd.run()
+    match cli.command {
+        Commands::Obfuscate(args) => ObfuscateCommand::from(args).run(),
+        Commands::AdjustCode(args) => AdjustCodeCommand::from(args).run(),
+        Commands::ListObfuscation(args) => ListObfuscationCommand::from(args).run(),
+    }
 }

@@ -1,11 +1,13 @@
 use anyhow::Result;
 use clap::Parser;
 use std::fs;
-use std::io::Write;
-use std::{fs::File, path::PathBuf};
 
-use crate::model::code_adjuster::{CodeAdjuster, TigressCodeAdjuster};
-use crate::model::dataset::Dataset;
+use std::path::PathBuf;
+
+use crate::model::code_organizer::TigressCodeOrganizer;
+use crate::model::dataset::{Dataset, DatasetSerealizeModel};
+use crate::model::obfuscator::Tigress;
+use crate::model::CodeOrganizer;
 
 use super::Command;
 
@@ -20,14 +22,14 @@ pub struct Args {
 }
 
 pub struct AdjustCodeCommand {
-    pub dataset: Dataset,
+    pub dataset: Dataset<Tigress>,
     pub target: Option<String>,
 }
 
-impl AdjustCodeCommand {
-    pub fn new(args: Args) -> Self {
+impl From<Args> for AdjustCodeCommand {
+    fn from(args: Args) -> Self {
         Self {
-            dataset: Dataset::new(&args.dataset_json_path),
+            dataset: Dataset::from(DatasetSerealizeModel::new(&args.dataset_json_path)),
             target: args.target,
         }
     }
@@ -35,21 +37,20 @@ impl AdjustCodeCommand {
 
 impl Command for AdjustCodeCommand {
     fn run(&self) -> Result<()> {
-        for code in self.dataset.code_db.iter() {
+        self.dataset.code_db.iter().for_each(|code| {
             if let Some(target) = &self.target {
-                if !code.dir_name.eq(target) {
-                    continue;
+                if !code.target.starts_with(target) {
+                    return;
                 }
             }
 
-            let dst_adj_dir_path = code.get_dst_adj_dir_path(&self.dataset.src_dir);
-            // 出力先が存在しない場合はディレクトリ作成
+            let dst_adj_dir_path = &Dataset::<Tigress>::get_dst_adj_dir_path(code);
             if !dst_adj_dir_path.exists() {
-                let _ = fs::create_dir(&dst_adj_dir_path);
+                fs::create_dir(&dst_adj_dir_path).unwrap();
             }
 
-            // Todo: Obfuscatedディレクトリの走査
-            code.get_dst_dir_path(&self.dataset.src_dir)
+            let dst_dir_path = &Dataset::<Tigress>::get_dst_dir_path(code);
+            dst_dir_path
                 .read_dir()
                 .unwrap()
                 .into_iter()
@@ -63,14 +64,9 @@ impl Command for AdjustCodeCommand {
                         .join(result.file_name())
                         .with_extension("c");
 
-                    let adjuster = TigressCodeAdjuster::new(result.path());
-
-                    if let Ok(adjusted_source_code) = adjuster.adjust_code() {
-                        let mut file = File::create(dst_adj_path).unwrap();
-                        let _ = write!(file, "{}", adjusted_source_code);
-                    };
+                    let _ = TigressCodeOrganizer::organize(&result.path(), &dst_adj_path);
                 });
-        }
+        });
 
         Ok(())
     }
