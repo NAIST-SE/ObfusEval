@@ -1,14 +1,19 @@
-use std::{env, fs};
+use std::{
+    env,
+    fs::{self, File},
+    io::BufReader,
+};
 
 use console::style;
 use indicatif::{MultiProgress, ProgressStyle};
 use obfuscator::Tigress;
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
+use serde::{Deserialize, Serialize};
 
 use self::code::Code;
 use super::*;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Dataset<T: Obfuscator + std::marker::Sync> {
     // name: String,
     pub base_dir: PathBuf,

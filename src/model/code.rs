@@ -1,8 +1,10 @@
 use std::fs;
 
+use serde::{Deserialize, Serialize};
+
 use super::*;
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Code {
     dir_name: String,
     pub target: String,

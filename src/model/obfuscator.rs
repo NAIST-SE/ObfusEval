@@ -1,12 +1,18 @@
-use std::{fs, process, time::Duration};
+use std::{
+    fs::{self, File},
+    io::BufReader,
+    process,
+    time::Duration,
+};
 
 use super::*;
 use anyhow::Result;
 use duct::{cmd, Expression};
 use indicatif::{ProgressBar, ProgressStyle};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Tigress {
     pub name: String,
     execution_path: PathBuf,

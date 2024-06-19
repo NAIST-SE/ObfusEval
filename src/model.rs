@@ -1,12 +1,13 @@
 use anyhow::Result;
 
+use code_parser::AnalyzedCodeData;
 use indicatif::ProgressBar;
 use obfuscator::Obfuscation;
-use serde::{Deserialize, Serialize};
-use std::{fs::File, io::BufReader, path::PathBuf};
+use std::path::PathBuf;
 
 pub mod code;
 pub mod code_organizer;
+pub mod code_parser;
 pub mod dataset;
 pub mod obfuscator;
 
@@ -41,4 +42,8 @@ pub trait Obfuscator {
         obfuscation: &Obfuscation,
         pb: &Option<ProgressBar>,
     ) -> Result<()>;
+}
+
+pub trait Parser<'a> {
+    fn parse(source_code: &'a String) -> Result<Vec<AnalyzedCodeData<'a>>>;
 }
