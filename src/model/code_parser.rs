@@ -282,7 +282,16 @@ impl<'a> CSourceCodeParser<'a> {
     }
 
     fn parse_function_name(line: &str) -> &str {
-        let end: usize = line.find("(").unwrap();
+        let mut end: usize = line.rfind("(").unwrap();
+        loop {
+            let Some(t) = line.chars().nth(end - 1) else {
+                break;
+            };
+            if t != ')' {
+                break;
+            }
+            end -= 1;
+        }
         let start: usize = line[..end].rfind(" ").unwrap();
         line[start + 1..end].trim()
     }
