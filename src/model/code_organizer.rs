@@ -17,7 +17,7 @@ impl CodeOrganizer for TigressCodeOrganizer {
         let source_code: String = fs::read_to_string(&src_path).unwrap();
 
         let analyze_result: Vec<AnalyzedCodeData> = CSourceCodeParser::parse(&source_code)?;
-        // dbg!("{}", &analyze_result);
+        // dbg!(&analyze_result);
 
         let extern_function_names: Vec<&str> = analyze_result
             .iter()
@@ -85,12 +85,24 @@ impl CodeOrganizer for TigressCodeOrganizer {
             organized_code += &x.contents.join("\n");
             organized_code += &"\n";
         }
+
+        let mut include_library = vec![];
+        if valid_extern_function_names
+            .iter()
+            .any(|x| x == &"printf" || x == &"sprintf")
+        {
+            include_library.push("#include <stdio.h>");
+        }
+        if valid_extern_function_names.iter().any(|x| x == &"strcat") {
+            include_library.push("#include <string.h>");
+        }
         if valid_extern_function_names
             .iter()
             .any(|x| x == &"rand" || x == &"*malloc")
         {
-            organized_code = "#include <stdlib.h>\n\n".to_string() + &organized_code;
+            include_library.push("#include <stdlib.h>");
         }
+        organized_code = include_library.join("\n") + "\n\n" + &organized_code;
 
         let mut file: File = File::create(dst_path)?;
         write!(file, "{}", organized_code)?;
