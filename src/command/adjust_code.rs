@@ -9,6 +9,7 @@ use crate::model::dataset::{Dataset, DatasetSerealizeModel};
 use crate::model::obfuscator::Tigress;
 use crate::model::CodeOrganizer;
 
+use super::obfuscate::ObfuscateCommand;
 use super::Command;
 
 #[derive(Parser)]
@@ -31,6 +32,15 @@ impl From<Args> for AdjustCodeCommand {
         Self {
             dataset: Dataset::from(DatasetSerealizeModel::new(&args.dataset_json_path)),
             target: args.target,
+        }
+    }
+}
+
+impl From<&ObfuscateCommand> for AdjustCodeCommand {
+    fn from(cmd: &ObfuscateCommand) -> Self {
+        Self {
+            dataset: cmd.dataset.clone(),
+            target: cmd.target.clone(),
         }
     }
 }

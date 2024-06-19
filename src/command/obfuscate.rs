@@ -11,7 +11,7 @@ use crate::model::{
     DatasetHandler, Obfuscator,
 };
 
-use super::Command;
+use super::{adjust_code::AdjustCodeCommand, Command};
 
 #[derive(Parser)]
 #[command(about = "Obfuscate the code in the dataset")]
@@ -23,9 +23,10 @@ pub struct Args {
     pub target: Option<String>,
 }
 
+#[derive(Clone)]
 pub struct ObfuscateCommand {
-    dataset: Dataset<Tigress>,
-    target: Option<String>,
+    pub dataset: Dataset<Tigress>,
+    pub target: Option<String>,
 }
 
 impl From<Args> for ObfuscateCommand {
@@ -77,9 +78,9 @@ impl Command for ObfuscateCommand {
             self.dataset.obfuscate_each_obfuscator()?;
         }
 
-        // println!("---\nAutomatic adjustment of obfuscated code to a compilable form.");
-        // let _ = self.to_adjust_code_command().run();
-        // println!("Complete.");
+        println!("---\nAutomatic adjustment of obfuscated code to a compilable form.");
+        let _ = AdjustCodeCommand::from(self).run();
+        println!("Complete.");
 
         Ok(())
     }
