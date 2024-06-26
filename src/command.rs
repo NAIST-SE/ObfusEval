@@ -3,6 +3,7 @@ use clap::{Parser, Subcommand};
 
 pub mod adjust_code;
 pub mod list_obfuscation;
+pub mod list_target;
 pub mod obfuscate;
 
 pub trait Command {
@@ -21,6 +22,7 @@ pub struct CommandLineInterface {
 pub enum Commands {
     Obfuscate(obfuscate::Args),
     ListObfuscation(list_obfuscation::Args),
+    ListTarget(list_target::Args),
     #[clap(hide(true))]
     AdjustCode(adjust_code::Args),
 }

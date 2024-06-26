@@ -9,7 +9,8 @@ use anyhow::Result;
 use clap::Parser;
 use command::{
     adjust_code::AdjustCodeCommand, list_obfuscation::ListObfuscationCommand,
-    obfuscate::ObfuscateCommand, Command, CommandLineInterface, Commands,
+    list_target::ListTargetCommand, obfuscate::ObfuscateCommand, Command, CommandLineInterface,
+    Commands,
 };
 
 pub fn run() -> Result<()> {
@@ -19,5 +20,6 @@ pub fn run() -> Result<()> {
         Commands::Obfuscate(args) => ObfuscateCommand::from(args).run(),
         Commands::AdjustCode(args) => AdjustCodeCommand::from(args).run(),
         Commands::ListObfuscation(args) => ListObfuscationCommand::from(args).run(),
+        Commands::ListTarget(args) => ListTargetCommand::from(args).run(),
     }
 }
