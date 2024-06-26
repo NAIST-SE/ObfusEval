@@ -6,7 +6,7 @@ use super::*;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Code {
-    dir_name: String,
+    pub dir_name: String,
     pub target: String,
     pub function: String,
     #[serde(skip)]
