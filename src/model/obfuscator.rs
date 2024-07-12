@@ -92,8 +92,9 @@ impl Obfuscator for Tigress {
         let _output = command.unchecked().stdout_null().stderr_capture().run();
         // todo: docker-compose.ymlが配置されているディレクトリ上でないと動作しないぽい
         if !dst_path.exists() {
-            eprintln!("docker-compose.yml が配置されているディレクトリ上で実行してください");
-            process::exit(1);
+            eprintln!("[難読化に失敗しました] {:?}", dst_path);
+            // eprintln!("docker-compose.yml が配置されているディレクトリ上で実行してください");
+            // process::exit(1);
         }
 
         if let Some(pb) = pb {
