@@ -28,6 +28,7 @@ pub trait Executor {
         if *dry_run {
             println!("{} {}", &program, &args.join(" "));
         } else {
+            println!("{} {}", &program, &args.join(" "));
             cmd(program, args).dir(&working_directory).read().unwrap();
         }
         Ok(())

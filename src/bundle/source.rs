@@ -96,6 +96,8 @@ impl<'in_project> Source<'in_project> for SourceInfo<'in_project> {
             return Ok(());
         }
 
+        let mut source = self.source().clone();
+
         std::fs::create_dir_all(&self.cache_home())?;
         std::fs::create_dir_all(&self.data_home())?;
 
@@ -117,11 +119,15 @@ impl<'in_project> Source<'in_project> for SourceInfo<'in_project> {
                         dry_run,
                     );
                 });
+
+            source = vec![self.obfuscated_source_path()];
+            source.extend_from_slice(&self.source()[1..]);
+            dbg!(&source);
         }
 
         self.compiler_option().compiler().compile(
             &working_directory,
-            self.source(),
+            &source,
             &self.binary_path(),
             self.compiler_option(),
             dry_run,
