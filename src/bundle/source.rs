@@ -98,9 +98,10 @@ impl<'in_project> Source<'in_project> for SourceInfo<'in_project> {
 
         std::fs::create_dir_all(&self.cache_home())?;
         std::fs::create_dir_all(&self.data_home())?;
-        std::fs::create_dir_all(&self.obfuscated_source_home())?;
 
         if let Some(obf_bundle) = self.obfuscator_option() {
+            std::fs::create_dir_all(&self.obfuscated_source_home())?;
+
             obf_bundle
                 .transformation_set
                 .iter()

@@ -155,13 +155,12 @@ impl LoadObfuscator for ExecutorInfo {
 }
 
 impl TransformationInfo {
-    fn generate_parameter(&self, function: &str) -> Vec<String> {
+    fn generate_parameter(&self, function_name: &str) -> Vec<String> {
         self.parameter
-            .iter()
-            .map(|x| x.replace("*", function))
-            .collect::<Vec<String>>()
-            .iter()
-            .flat_map(|x| x.split_whitespace().map(|s| s.to_string()))
+            .join(" ")
+            .replace("--Functions=*", &format!("--Functions={}", function_name))
+            .split_whitespace()
+            .map(|x| x.to_string())
             .collect()
     }
 }
